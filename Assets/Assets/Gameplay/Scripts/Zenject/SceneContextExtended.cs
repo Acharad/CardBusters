@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 using Zenject.Internal;
@@ -38,7 +39,7 @@ namespace Assets.Gameplay.Scripts.Zenject
             // ZenUtilInternal.AddStateMachineBehaviourAutoInjectersInScene(scene);
             ZenUtilInternal.GetInjectableMonoBehavioursInScene(scene, monoBehaviours);
         }
-/*
+
         [Button]
         private void CopyFrom()
         {
@@ -50,6 +51,6 @@ namespace Assets.Gameplay.Scripts.Zenject
             UnityEditor.AssetDatabase.Refresh();
 #endif
         }
-        */
+     
     }
 }

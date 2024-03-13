@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
+using ModestTree;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 using Zenject.Internal;
@@ -13,7 +16,7 @@ namespace Assets.Gameplay.Scripts.Zenject
             // ZenUtilInternal.AddStateMachineBehaviourAutoInjectersUnderGameObject(gameObject);
             ZenUtilInternal.GetInjectableMonoBehavioursUnderGameObject(gameObject, monoBehaviours);
         }
-        /*
+        
         [Button]
         private void CopyFrom()
         {
@@ -57,6 +60,6 @@ namespace Assets.Gameplay.Scripts.Zenject
             Debug.Log($"Added ({installersToAdd.Count}):\n{string.Join('\n', installersToAdd)}");
 #endif
         }
-        */
+        
     }
 }
