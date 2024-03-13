@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cb738b3503fbf914e9c5cb462c9a68a6
+  m_SerializeEntries:
+  - m_GUID: 1ea28928447584969b004bd9e7594112
+    m_Address: Assets/Art/Textures/Particles/T_Particle_PowerUps_Rocket_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5751c9062bdffee459932d7f390b13e8
+    m_Address: Assets/Art/Prefabs/UI/Tutorials/Instantiate Content/P_TutorialContent_PressBallsRakeTarget.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad0932d0c3269ac40848a9364b6c0883
+    m_Address: Assets/Art/Prefabs/Tutorials/P_Tutorial_HandIcon.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9544aa4ba505c924fa58c5343c8223e5
+    m_Address: Assets/Art/Prefabs/UI/Tutorials/Instantiate Content/P_TutorialContent_ContinueUsingRake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6256b83b9aaa7c842ae9d970c5429bd0
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_BlockGameInput_False.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcbdc5ea4dcafe547858b85e38216aed
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_EnableButton_AllBoosterButtons_False.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dd878e9682a67c48b4961ee43575a3e
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_BlockGameInput_True.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a81281fe49686445bb0de5c965ea7a1
+    m_Address: Assets/Art/Prefabs/UI/Tutorials/Instantiate Content/P_TutorialContent_PressBoosterRake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 859f41c8e4f71ee44844c31468c2e84c
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_Delay_1Seconds.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 242c90c31ced0e94db58715f1c9a3163
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_EnableButton_Settings_False.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c719aa4155cdb0a42b3bb56aadc333df
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_EnableButton_AllBoosterButtons_True.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1e9a250640f1d3478c7ca381fe0409a
+    m_Address: Assets/Code/ScriptableObjects/Tutorials/Common/SO_TutorialStep_EnableButton_Settings_True.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d3799d71844e6145b1b3aecac680e6b
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/BottomTerrain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18736408585000a4d95a62ea1e244e4b
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelEdges.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6b41fc112e6d584e99a16a51fce4da3
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelEdge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f96550915e1658a4195dff70b551b70b
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Shaders/UnitColoredTransparent.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84776d77d99f68742af7cec4b582f3f1
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelFill.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff6f5fdb4107521499a070c589aa4d76
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelFill.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76bdcdfb58f9b45c397ea6e0c65869f3
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelTerrain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6825dd06bce604e118cabb5b21c6016a
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelTerrain_Static_Circle.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2839e53b8b9be54cba34a6ddc9bd471
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelTerrain_Static_Triangle.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd279c8c1134142129ffb6ef601ec4d7
+    m_Address: Assets/Plugins/Ferr/2DTerrain/Materials/LevelTerrain_Static_Square.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d2ddc150555105041ad7f476a376a7d7, type: 2}
+    - {fileID: 11400000, guid: 7735fd1d49f774a43b7242c0c9e163ad, type: 2}

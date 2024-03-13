@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation1
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 22f0c57be1a00904eb5306996d24f618
+  m_SerializeEntries:
+  - m_GUID: 6ebb3d20f6e6192479df18fece773ccd
+    m_Address: AT_Chest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aca0bb9066a50b146ad3c968a930c27c
+    m_Address: AT_UI_First
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cca0b115bf6472439dd1a130daf3f01
+    m_Address: AT_GameplayBackgrounds
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 449cf5b324e984e4599507b4d8ae5f00
+    m_Address: AT_ConceptBackgrounds
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34d16d8bb22104a488d5a17c2a68b1df
+    m_Address: AT_Polaroid
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2f6562120c527843997b3816d8b1281
+    m_Address: AT_UI_Second
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 527443e3215ab04438506bd6762f8e6c
+    m_Address: AT_Features
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9b4032bd019631545a07951d10507b34, type: 2}
+    - {fileID: 11400000, guid: d42de64d25a5e64449255f287ac56677, type: 2}

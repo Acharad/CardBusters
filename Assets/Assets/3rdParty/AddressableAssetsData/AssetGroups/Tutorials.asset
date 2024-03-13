@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Tutorials
+  m_EditorClassIdentifier: 
+  m_GroupName: Tutorials
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d6979974fc3549f4cadee2249fc710f9
+  m_SerializeEntries:
+  - m_GUID: 863e63be6e7a5dc4cacbfe901caa652b
+    m_Address: TutorialsContainer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee81e9d026c30f447a6a9d46cefb5592
+    m_Address: MetaTutorialsContainer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 934d31108d089c64c88ea010a2b7353e, type: 2}
+    - {fileID: 11400000, guid: 2c09b0709a715a046aded0f261c8de97, type: 2}

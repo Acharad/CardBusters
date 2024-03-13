@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation4
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation4
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 883ccf2b4556e544b9ad184596efaf37
+  m_SerializeEntries:
+  - m_GUID: ce22a878a4f54604492d0903e10fa63e
+    m_Address: AT_Gameplay_LevelObjects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d09a44d62c36584fb7b6dfa62f41f1f
+    m_Address: AT_Gameplay_Effects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4f48a2f76abde1045871cfbccd171a51, type: 2}
+    - {fileID: 11400000, guid: 6c68501fe3eda7345a9657a7234fd8c4, type: 2}

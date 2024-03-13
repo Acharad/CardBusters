@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation2
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4ece8520fc02a5e4ab6bec80a1c3c206
+  m_SerializeEntries:
+  - m_GUID: fe44d254d8d91e84d8d32ecd08ae9ab0
+    m_Address: Assets/Code/HapticConstant/HapticScriptableObjects/SO_HapticConstant.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 918e32c6f0e1144478c55e69e8ecd7cf
+    m_Address: Assets/Art/Materials/Particles/M_Particle_EntranceParticle_Blast.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f8b05780e27c6d44ae11fed6b118f23
+    m_Address: Assets/Art/FX/Materials/M_BlurCircle.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e937a3ffbc2554948831ecbd288f0239
+    m_Address: Assets/Art/FX/Textures/T_starMedium.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dfc825aed78fcd4ba02077103263b40
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13c02b14c4d048fa9653293d54f6e0e1
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Unlit-Default.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bed4dcc65fca284ba9aa927db1cc621
+    m_Address: Assets/Art/FX/Materials/M_SparkleSoft_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0406db5a14f94604a8c57ccfbc9f3b46
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesUnlit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36e335017ad71d54fbb10842863188ae
+    m_Address: Packages/com.unity.render-pipelines.core/Runtime/FallbackShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cac9e12b5511bd47ab4a168d00cf44b
+    m_Address: Assets/Art/FX/Materials/M_sparkle.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7839dad95683814aa64166edc107ae2
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesLit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8516d7a69675844a7a0b7095af7c46af
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08e40fd9e2805a243ae0670a606da048
+    m_Address: Assets/Art/FX/Textures/T_sparkle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e8291d1449b5644d87203c8c64474ca
+    m_Address: Assets/Art/FX/Materials/M_NewStar_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe9e0237789b36949aa4877910f1aebc
+    m_Address: Assets/Art/Materials/Particles/M_Particle_Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c87d4beb5fed63a4689174729d769b83
+    m_Address: Assets/Art/FX/Materials/M_SparkleSoft_White 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15d0c3709176029428a0da2f8cecf0b5
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpriteMask-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e39bd598ce13f44ba8af997d3e42cd18
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Mask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bafc7aca6a15ce4a92553883cdf5612
+    m_Address: Assets/Art/FX/Materials/Magic/M_MagicOrb2_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d771f7709ddd21f43a8d6ea0573d4f88
+    m_Address: Assets/Art/FX/Textures/T_MagicOrb2_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3217b570b11b257469c5461f0457e5d4
+    m_Address: Assets/Art/FX/Materials/M_MsVFXStylizedSmoke1_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acb5a3be17a640142b494ddeb5f52c8c
+    m_Address: Assets/Art/FX/Materials/M_Ring_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4280d58393322842afb10bcbcfc2a83
+    m_Address: Assets/Art/FX/Textures/T_Ring_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 962588ea14a7d69488f7ce53ab616f2c
+    m_Address: Assets/Art/FX/Materials/Magic/M_MagicOrb_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b2970a114ab1614d99a18ce46d4f458
+    m_Address: Assets/Art/FX/Textures/T_MagicOrb_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cd07bd46b6910d4cae76b26308cc645
+    m_Address: Assets/Art/FX/Materials/M_Sparkle3_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 338d5d98599ed34419722ef369cb3942
+    m_Address: Assets/Art/FX/Materials/M_Sparkle4_White.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a09eeea47ebb9ba48bf92c2baf570e01
+    m_Address: Assets/Art/FX/Materials/SceneMaterials/LeafMaterials/M_Leaf1_Green.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e653836c30661fe419b8992e230ca189
+    m_Address: Assets/Art/FX/Materials/Glows/M_Glow_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c822b01a637d547abc69e6f1f590b4
+    m_Address: Assets/Art/FX/Textures/T_Glow_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eb8a33775336db46b86a541d7c75666
+    m_Address: Assets/Art/FX/Materials/M_Bubble2_Turquoise.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f56b909b0117a34f9c656f9102342ac
+    m_Address: Assets/Art/FX/Materials/M_WaterBubble2_Transparent.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3745f72e1fb3bdc4bb3faa7282505967
+    m_Address: Assets/Art/FX/Materials/M_Smoke_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fc8d166c6c8117449e436c2da2a9892
+    m_Address: Assets/Art/FX/Materials/Geometric/M_Circle1_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d496a04c2df94040bad8e4609aa8f33
+    m_Address: Assets/Art/FX/Textures/T_StarPRT_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfe25e4c8955e894ab7aa78eeed5d9c8
+    m_Address: Assets/Art/FX/Materials/Note Materials/M_Note3_Black.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aef0e6f7d0bb63c4cb4e9a5561d30ec9
+    m_Address: Assets/Art/FX/Materials/Note Materials/M_Note1_Black.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4793e582adf6e7746a150ce6e297c209
+    m_Address: Assets/Art/FX/Materials/Note Materials/M_Note5_Black.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8013662bf2b2a4247a4bd2eaa323c56b
+    m_Address: Assets/Art/FX/Materials/M_CloudsMobile_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6178b66fdaaefeb40a84dd994b70b787
+    m_Address: Assets/Art/FX/Textures/T_Cloud2x2Mobile_Tex.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc023ceb8b209b14eabb88fc4d44f51a
+    m_Address: Assets/Art/FX/Materials/Sprite-Lit_Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bdfa615ee3ee86488e1ad14aa152a04
+    m_Address: Assets/Art/FX/Materials/SceneMaterials/14-SpaceTravel/M_ShipSmoke_Gray.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7eef8fa05cd4de4f950f1e34138afad
+    m_Address: Assets/Art/FX/Materials/SceneMaterials/18-HauntedHouse/M_BearSleep_White.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5042f46f9d6d2c14392a3f17e8a83d69, type: 2}
+    - {fileID: 11400000, guid: 7f2f0b97cc6ed1d44bef8e62ddf9a7dc, type: 2}

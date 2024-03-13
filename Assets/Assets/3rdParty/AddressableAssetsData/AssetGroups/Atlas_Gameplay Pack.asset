@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Atlas_Gameplay Pack
+  m_EditorClassIdentifier: 
+  m_GroupName: Atlas_Gameplay Pack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 432d0e9b1846bf142bea72608afa0382
+  m_SerializeEntries:
+  - m_GUID: 991dda0b30792b6448846db2cdadbfc2
+    m_Address: AT_Gameplay_UNUSED
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ed0a1c9f682b3c146be3ea278098e20e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 47e647797a5eb0d4c8aeead65de69152, type: 2}
+    - {fileID: 11400000, guid: 7d341d74d947fea4ebad1d92460e22e0, type: 2}
