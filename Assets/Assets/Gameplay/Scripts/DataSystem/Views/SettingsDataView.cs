@@ -10,6 +10,8 @@ namespace Assets.Gameplay.Scripts.DataSystem.Views
         private string _filePath;
         public event Action<SettingsDataModel> OnDataSaved;
         public event Action<SettingsDataModel> OnDataLoad;
+        
+        
 
         public SettingsDataView(string filePath)
         {
@@ -17,11 +19,13 @@ namespace Assets.Gameplay.Scripts.DataSystem.Views
         }
         
         public SettingsDataModel Data { get; }
-        public void Load()
+        public SettingsDataModel Load()
         {
             //todo
             
             OnDataLoad?.Invoke(Data);
+
+            return Data;
         }
 
         public void Save(SettingsDataModel data)

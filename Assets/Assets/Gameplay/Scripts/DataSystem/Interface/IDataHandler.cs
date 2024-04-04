@@ -9,7 +9,7 @@ namespace Assets.Gameplay.Scripts.DataSystem.Interface
 
         public T Data { get; }
 
-        void Load();
+        T Load();
         void Save(T data);
     }
 }
