@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
+using Assets.Gameplay.Scripts.SystemScripts;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace Assets.Gameplay.Scripts.SceneSystem
         private string _oldScene;
         private string _currentScene;
         private readonly TimeSpan _timeout;
+        
+        private readonly TaskSequence _sequenceBeforeLoad;
+        private readonly TaskSequence _sequenceAfterLoad;
 
         public SceneLoader(TimeSpan timeout)
         {
@@ -50,7 +54,7 @@ namespace Assets.Gameplay.Scripts.SceneSystem
         }
 
 
-        private Task LoadSceneAsync(string sceneToLoad)
+        public Task LoadSceneAsync(string sceneToLoad)
         {
             if (_runningTask != null)
                 return _runningTask;
@@ -59,6 +63,26 @@ namespace Assets.Gameplay.Scripts.SceneSystem
             SceneToLoad = sceneToLoad;
             _runningTask = LoadSceneAsync();
             return _runningTask;
+        }
+        
+        public void AppendBeforeLoad(Func<Task> taskFactory)
+        {
+            if (_runningTask != null)
+            {
+                Debug.LogWarning("Scene load in progress");
+                return;
+            }
+            _sequenceBeforeLoad.Append(taskFactory);
+        }
+        
+        public void AppendAfterLoad(Func<Task> taskFactory)
+        {
+            if (_runningTask != null)
+            {
+                Debug.LogWarning("Scene load in progress");
+                return;
+            }
+            _sequenceAfterLoad.Append(taskFactory);
         }
 
         private async Task LoadSceneAsync()
