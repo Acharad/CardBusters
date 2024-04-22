@@ -211,10 +211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7329258905080206828, guid: 045ae1d1492776d44ab84eb23647eca0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 7778841729140997094, guid: 045ae1d1492776d44ab84eb23647eca0, type: 3}
       propertyPath: m_Name
       value: P_Canvas_Menu_Variant
@@ -300,6 +296,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6756122334209662012, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756122334209662012, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
+      propertyPath: _monoInstallers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1045523689}
     - target: {fileID: 6815166401174970375, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -347,8 +351,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8161507631984981039, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1045523689}
   m_SourcePrefab: {fileID: 100100000, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
+--- !u!1 &1045523688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8161507631984981039, guid: c2d787d24dd69f9419318b6b30cf6dbf, type: 3}
+  m_PrefabInstance: {fileID: 1045523687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1045523689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045523688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762767f44f2d26042a9461e603760bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelPlayButton: {fileID: 1464201549}
+--- !u!114 &1464201549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5796534945754854050, guid: 045ae1d1492776d44ab84eb23647eca0, type: 3}
+  m_PrefabInstance: {fileID: 478891508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c80810c3577d747b39fcca3b0df002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907987435
 GameObject:
   m_ObjectHideFlags: 0
