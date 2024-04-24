@@ -4,33 +4,21 @@ using UnityEngine.UI;
 
 namespace Assets.Gameplay.Scripts.Location
 {
-    public class LocationModel : MonoBehaviour
+    public class LocationModel : MonoBehaviour, IOnRevealLocation
     {
-        [SerializeField] private Image hideImage;
-        [SerializeField] private Image openedImage;
-        [SerializeField] private TextMeshProUGUI descText;
-        [SerializeField] private TextMeshProUGUI revealTurnCount;
-        [SerializeField] private Animator animator;
+        private LocationView _locationView;
 
-
-        public bool isRevealed { get; private set; }
-
-
-
-        public void StartRevealAnimation()
+        public LocationModel(LocationView locationView)
         {
-            if (animator != null)
-            {
-                animator.SetTrigger("RevealAnimation");
-            }
-
-            isRevealed = true;
+            _locationView = locationView;
         }
 
-
-        public void ChangeRevealTurnCont(int value)
+        public void OnRevealFunc()
         {
-            revealTurnCount.text = value.ToString();
+            
+            OnLocationRevealed?.Invoke();
         }
+
+        public event System.Action OnLocationRevealed;
     }
 }

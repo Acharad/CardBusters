@@ -1,23 +1,44 @@
-using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Gameplay.Scripts.Location
 {
-    public class LocationView : MonoBehaviour, IOnRevealLocation
+    public class LocationView : MonoBehaviour
     {
-        private LocationModel _locationModel;
+        [SerializeField] private SpriteRenderer hideSpriteRenderer;
+        [SerializeField] private SpriteRenderer openedSpriteRenderer;
+        [SerializeField] private TextMeshProUGUI descText;
+        [SerializeField] private int revealTurnCount;
+        [SerializeField] private Animator animator;
+        
+        public bool isRevealed { get; private set; }
 
-        public LocationView(LocationModel locationModel)
+        public void PrePareLocation(Sprite openedSprite)
         {
-            _locationModel = locationModel;
+            openedSpriteRenderer.sprite = openedSprite;
+        }
+        
+        public void StartRevealAnimation()
+        {
+            if (animator != null)
+            {
+                animator.SetTrigger("RevealAnimation");
+            }
+
+            isRevealed = true;
+        }
+        
+        public void ChangeRevealTurnCont(int value)
+        {
+            revealTurnCount = value;
+            SetDescriptionText();
         }
 
-        public void OnRevealFunc()
+        private void SetDescriptionText()
         {
-            
-            OnLocationRevealed?.Invoke();
+            descText.text = $"The location revealed in {revealTurnCount}. turn";
         }
-
-        public event Action OnLocationRevealed;
+        
     }
 }
