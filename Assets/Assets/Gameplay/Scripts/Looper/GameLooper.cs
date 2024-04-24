@@ -181,7 +181,6 @@ namespace Assets.Gameplay.Scripts.Looper
                 currentGameLoopBuilder.BuildFieldCreationActions(ref _fieldCreationActionsList);
                 currentGameLoopBuilder.BuildWinActions(ref _winActionsList);
                 currentGameLoopBuilder.BuildLoseActions(ref _loseActionsList);
-                currentGameLoopBuilder.BuildPlayOnToGameActions(ref _playOnToGameActionsList);
             }
         }
         

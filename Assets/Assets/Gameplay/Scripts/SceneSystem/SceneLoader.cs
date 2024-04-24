@@ -50,7 +50,7 @@ namespace Assets.Gameplay.Scripts.SceneSystem
         public void LoadScene(string sceneToLoad)
         {
             SceneToLoad = sceneToLoad;
-            LoadSceneAsync();
+            LoadSceneAsync().FireAndForget();
         }
 
 

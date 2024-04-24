@@ -7,7 +7,6 @@ namespace Assets.Gameplay.Scripts.DataSystem.Interface
         public void Add(T other);
         public void Remove(T other);
         public void Set(T other);
-        public T Copy();
         public bool IsValid { get; }
     }
 }

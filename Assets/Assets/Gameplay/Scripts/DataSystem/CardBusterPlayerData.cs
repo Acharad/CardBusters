@@ -11,18 +11,18 @@ namespace Assets.Gameplay.Scripts.DataSystem
         [NonSerialized] public SettingsDataModel SettingsDataModel;
         private SettingsDataView _settingsDataView;
 
+        [NonSerialized] public GameplayCardDataModel GameplayCardDataModel;
+        private GameplayCardDataView _gameplayCardDataView;
+
 
         [Inject]
-        private void Construct(SettingsDataView settingsDataView)
+        private void Construct(SettingsDataView settingsDataView, GameplayCardDataView gameplayCardDataView)
         {
             _settingsDataView = settingsDataView;
+            _gameplayCardDataView = gameplayCardDataView;
 
-
-
-
-
-
-
+            
+            GameplayCardDataModel = _gameplayCardDataView.Load();
             SettingsDataModel = _settingsDataView.Load();
         }
     }

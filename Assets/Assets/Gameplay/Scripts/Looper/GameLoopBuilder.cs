@@ -27,9 +27,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
         [Sirenix.OdinInspector.ShowInInspector] 
         protected List<ITick> InternalLoseActionsList;
-
-        [Sirenix.OdinInspector.ShowInInspector] 
-        protected List<ITick> InternalPlayOnToGameActionsList;
+        
 
         public virtual void BuildLooper(ref List<ITick> loopList)
         {
@@ -71,13 +69,7 @@ namespace Assets.Gameplay.Scripts.Looper
             }
         }
 
-        public virtual void BuildPlayOnToGameActions(ref List<ITick> loopList)
-        {
-            for (int i = 0; i < InternalPlayOnToGameActionsList.Count; i++)
-            {
-                loopList.Add(InternalPlayOnToGameActionsList[i]);
-            }
-        }
+        
 
         private void OnValidate()
         {
@@ -98,7 +90,6 @@ namespace Assets.Gameplay.Scripts.Looper
             PopulateInternalFieldCreationActionsList();
             PopulateInternalWinActionsList();
             PopulateInternalLoseActionsList();
-            PopulateInternalPlayOnToGameActionsList();
         }
 
         private bool ValidateInternalParents()
@@ -122,12 +113,10 @@ namespace Assets.Gameplay.Scripts.Looper
 
                 InternalLoopList.Clear();
 
-                ITick ChildTick;
-
                 for (int i = 0; i < internalLoopsParent.childCount; i++)
                 {
-                    ChildTick = internalLoopsParent.GetChild(i).GetComponent<ITick>();
-                    InternalLoopList.Add(ChildTick);
+                    var childTick = internalLoopsParent.GetChild(i).GetComponent<ITick>();
+                    InternalLoopList.Add(childTick);
                 }
             }
             catch (System.Exception e)
@@ -232,32 +221,6 @@ namespace Assets.Gameplay.Scripts.Looper
                 {
                     ChildTick = internalLoseActionsParent.GetChild(i).GetComponent<ITick>();
                     InternalLoseActionsList.Add(ChildTick);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError(e);
-            }
-        }
-
-        [Sirenix.OdinInspector.Button]
-        public void PopulateInternalPlayOnToGameActionsList()
-        {
-            try
-            {
-                if (InternalPlayOnToGameActionsList == null)
-                {
-                    InternalPlayOnToGameActionsList = new List<ITick>();
-                }
-
-                InternalPlayOnToGameActionsList.Clear();
-
-                ITick ChildTick;
-
-                for (int i = 0; i < internalPlayOnToGameActionsParent.childCount; i++)
-                {
-                    ChildTick = internalPlayOnToGameActionsParent.GetChild(i).GetComponent<ITick>();
-                    InternalPlayOnToGameActionsList.Add(ChildTick);
                 }
             }
             catch (System.Exception e)

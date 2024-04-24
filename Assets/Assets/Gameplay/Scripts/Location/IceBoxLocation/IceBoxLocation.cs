@@ -4,6 +4,7 @@ namespace Assets.Gameplay.Scripts.Location.IceBoxLocation
     {
         public IceBoxLocation(LocationView locationView) : base(locationView)
         {
+            //Todo hayri abiye sor.
         }
     }
 }
