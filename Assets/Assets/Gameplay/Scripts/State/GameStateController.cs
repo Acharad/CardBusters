@@ -12,6 +12,7 @@ namespace Assets.Gameplay.Scripts.State
 
         public event Action<GameState> OnGameStateChanged;
 
+        [Inject]
         private void Construct(SignalBus signalBus)
         {
             _signalBus = signalBus;
@@ -28,7 +29,8 @@ namespace Assets.Gameplay.Scripts.State
         }
 
         public GameState GetGameState() => currentGameState;
-
+        
+        [Sirenix.OdinInspector.Button]
         public void SetGameState(GameState state)
         {
             if (currentGameState == state)

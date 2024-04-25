@@ -23,11 +23,11 @@ namespace Assets.Gameplay.Scripts.UI.ButtonScripts
         [ValueDropdown("GetAllScenes")][SerializeField] protected string _loadScene;
         
         [Inject]
-        private void Construct(SceneLoader sceneLoader, SignalBus signalBus, LoadingScreenController loadingScreenController)
+        private void Construct(SceneLoader sceneLoader, SignalBus signalBus)
         {
             _sceneLoader = sceneLoader;
             _signalBus = signalBus;
-            _loadingScreenController = loadingScreenController;
+            // _loadingScreenController = loadingScreenController;
         }
         
         protected override void OnClickListener()

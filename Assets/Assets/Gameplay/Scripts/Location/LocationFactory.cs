@@ -16,7 +16,7 @@ namespace Assets.Gameplay.Scripts.Location
             _locationDataSo = locationDataSo;
         }
 
-        public LocationModel CreateLocation(LocationType locationType, Transform parent)
+        public LocationView CreateLocation(LocationType locationType, Transform parent, int locationRevealInt)
         {
             if (locationType ==  LocationType.None)
             {
@@ -28,33 +28,62 @@ namespace Assets.Gameplay.Scripts.Location
                 locationType = GetRandomLocation();
             }
 
-            var locationView = Instantiate(locationViewBasePrefab, Vector3.zero, Quaternion.identity, parent);
-            
-            LocationModel locationModel = null; 
+            LocationView locationView = null;
             switch (locationType)
             {
                 case LocationType.IceBox:
-                    locationModel = CreateIceBoxLocation(locationView);
+                    locationView = CreateIceBoxLocation(parent, locationRevealInt);
+                    break;
+                case LocationType.Asgard:
+                    locationView = CreateAsgardLocation(parent ,locationRevealInt);
+                    break;
+                case LocationType.Atlantis:
+                    locationView = CreateAtlantisLocation(parent ,locationRevealInt);
                     break;
             }
-
-
-
-
-
-            return locationModel;
+            if (locationView != null)
+                locationView.GetComponent<RectTransform>().localPosition = Vector3.one;
+            
+            return locationView;
         }
 
-        private LocationModel CreateIceBoxLocation(LocationView locationView)
+        private LocationView CreateIceBoxLocation(Transform parent, int revealCount)
         {
-            if (!_locationDataSo.gameLocationSpriteDictionary.TryGetValue(LocationType.IceBox, out var locationSprite))
+            if (!_locationDataSo.gameLocationViewDictionary.TryGetValue(LocationType.IceBox, out var locationData))
             {
                 Debug.LogError("Location sprite is NULL");
                 return null;
             }
-            IceBoxLocation.IceBoxLocation iceBoxLocation = new(locationView);
-            locationView.PrePareLocation(locationSprite);
-            return iceBoxLocation;
+            var iceBoxView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            iceBoxView.Init(locationData.LocationModel, revealCount);
+            
+            return iceBoxView;
+        }
+        
+        private LocationView CreateAsgardLocation(Transform parent, int revealCount)
+        {
+            if (!_locationDataSo.gameLocationViewDictionary.TryGetValue(LocationType.Asgard, out var locationData))
+            {
+                Debug.LogError("Location sprite is NULL");
+                return null;
+            }
+            var asgardView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            asgardView.Init(locationData.LocationModel, revealCount);
+            
+            return asgardView;
+        }
+        
+        private LocationView CreateAtlantisLocation(Transform parent, int revealCount)
+        {
+            if (!_locationDataSo.gameLocationViewDictionary.TryGetValue(LocationType.Atlantis, out var locationData))
+            {
+                Debug.LogError("Location sprite is NULL");
+                return null;
+            }
+            var atlantisLocation = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            atlantisLocation.Init(locationData.LocationModel, revealCount);
+            
+            return atlantisLocation;
         }
 
 

@@ -38,7 +38,11 @@ namespace Assets.Gameplay.Scripts.Looper
         private List<ITick> _loseActionsList;
 
         [Sirenix.OdinInspector.ShowInInspector]
-        private List<ITick> _playOnToGameActionsList;
+        private List<ITick> _turnEndActionsList;
+        
+        [Sirenix.OdinInspector.ShowInInspector]
+        private List<ITick> _turnStartActionsList;
+        
 
         [Sirenix.OdinInspector.ShowInInspector]
         private GameObject _currentLoopObject;
@@ -59,7 +63,10 @@ namespace Assets.Gameplay.Scripts.Looper
         private IEnumerator _currentLoseTick;
 
         [Sirenix.OdinInspector.ShowInInspector]
-        private IEnumerator _currentPlayOnToGameTick;
+        private IEnumerator _currentTurnEndTick;
+        
+        [Sirenix.OdinInspector.ShowInInspector]
+        private IEnumerator _currentTurnStartTick;
         
         private IInstantiator _instantiator;
         
@@ -73,6 +80,8 @@ namespace Assets.Gameplay.Scripts.Looper
         private Coroutine _mainGameLoop;
         private Coroutine _loseActionsCor;
         private Coroutine _currentLoseActionCor;
+        private Coroutine _currentTurnEndActionsCor;
+        private Coroutine _currentTurnStartActionsCor;
         
         [Inject]
         private void Construct(IInstantiator instantiator, GameStateController gameStateController)
@@ -131,7 +140,8 @@ namespace Assets.Gameplay.Scripts.Looper
             _fieldCreationActionsList = new List<ITick>();
             _winActionsList = new List<ITick>();
             _loseActionsList = new List<ITick>();
-            _playOnToGameActionsList = new List<ITick>();
+            _turnEndActionsList = new List<ITick>();
+            _turnStartActionsList = new();
         }
 
         public void SetGameLoop(GameLoopType gameMode)
@@ -172,16 +182,17 @@ namespace Assets.Gameplay.Scripts.Looper
             _fieldCreationActionsList.Clear();
             _winActionsList.Clear();
             _loseActionsList.Clear();
-            _playOnToGameActionsList.Clear();
+            _turnEndActionsList.Clear();
+            _turnStartActionsList.Clear();
 
-            if (currentGameLoopBuilder != null)
-            {
-                currentGameLoopBuilder.BuildLooper(ref _loopList);
-                currentGameLoopBuilder.BuildFirstTimeActions(ref _firstOneTimeActionsList);
-                currentGameLoopBuilder.BuildFieldCreationActions(ref _fieldCreationActionsList);
-                currentGameLoopBuilder.BuildWinActions(ref _winActionsList);
-                currentGameLoopBuilder.BuildLoseActions(ref _loseActionsList);
-            }
+            if (currentGameLoopBuilder == null) return;
+            currentGameLoopBuilder.BuildLooper(ref _loopList);
+            currentGameLoopBuilder.BuildFirstTimeActions(ref _firstOneTimeActionsList);
+            currentGameLoopBuilder.BuildFieldCreationActions(ref _fieldCreationActionsList);
+            currentGameLoopBuilder.BuildWinActions(ref _winActionsList);
+            currentGameLoopBuilder.BuildLoseActions(ref _loseActionsList);
+            currentGameLoopBuilder.BuildTurnEndActions(ref _turnEndActionsList);
+            currentGameLoopBuilder.BuildTurnStartActions(ref _turnStartActionsList);
         }
         
         public void StartFirstTimeActions()
@@ -271,8 +282,7 @@ namespace Assets.Gameplay.Scripts.Looper
             yield break;
         }
 
-
-        //TODO: Match3 takma
+        
         public void StartWinActions()
         {
             if (!GetIsManagerActive())
@@ -295,13 +305,6 @@ namespace Assets.Gameplay.Scripts.Looper
             _gameStateController.SetGameState(GameState.Win);
         
             Debug.Log("Starting Win Actions...");
-            
-            //TODO: Match3 takma
-            // if (_firstInputReceivedGetter.IsFirstInputReceived())
-            // {
-            //     OnFirstInputReceived?.Invoke(false);
-            //     _lifeController.AddLife(1,  true);
-            // }
             
             StartCoroutine(WinActions());
         }
@@ -354,18 +357,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
             yield break;
         }
-
-        public void StartPlayOnToGameActions()
-        {
-            if (!GetIsManagerActive())
-                return;
-            
-            StopLoseActions();
-            
-            _duplicateCheck = false;
-            StartCoroutine(PlayOnToGameActions());
-        }
-
+        
         public void StopLoseActions()
         {
             if(_currentLoseActionCor != null)
@@ -376,26 +368,68 @@ namespace Assets.Gameplay.Scripts.Looper
             if(_loseActionsCor != null)
                 StopCoroutine(_loseActionsCor);
         }
-        
-        private IEnumerator PlayOnToGameActions()
-        {
-            foreach (var playOnToGameTick in _playOnToGameActionsList)
-            {
-                _currentPlayOnToGameTick = playOnToGameTick.Tick();
 
-                if (playOnToGameTick.WillWait)
+        public void StartTurnEndActions()
+        {
+            if (!GetIsManagerActive())
+                return;
+            if (_duplicateCheck)
+                return;
+            _duplicateCheck = true;
+
+            _currentTurnEndActionsCor = StartCoroutine(TurnEndActions());
+        }
+
+        private IEnumerator TurnEndActions()
+        {
+            foreach (var loseTick in _turnEndActionsList)
+            {
+                _currentTurnEndTick = loseTick.Tick();
+                _currentTurnEndActionsCor = StartCoroutine(_currentTurnEndTick);
+
+                if (loseTick.WillWait)
                 {
-                    yield return StartCoroutine(_currentPlayOnToGameTick);
-                }
-                else
-                {
-                    StartCoroutine(_currentPlayOnToGameTick);
+                    yield return _currentTurnEndActionsCor;
                 }
             }
 
-            _currentPlayOnToGameTick = null;
+            _currentTurnEndTick = null;
+
             yield break;
         }
+        
+        public void StartTurnStartActions()
+        {
+            if (!GetIsManagerActive())
+                return;
+            if (_duplicateCheck)
+                return;
+            _duplicateCheck = true;
+
+            _currentTurnStartActionsCor = StartCoroutine(TurnStartActions());
+        }
+
+        private IEnumerator TurnStartActions()
+        {
+            foreach (var loseTick in _turnEndActionsList)
+            {
+                _currentTurnStartTick = loseTick.Tick();
+                _currentTurnStartActionsCor = StartCoroutine(_currentTurnStartTick);
+
+                if (loseTick.WillWait)
+                {
+                    yield return _currentTurnStartActionsCor;
+                }
+            }
+
+            _currentTurnStartTick = null;
+
+            yield break;
+        }
+        
+
+        
+        
 
         [Sirenix.OdinInspector.Button()]
         private void DebugAllTickInfo()

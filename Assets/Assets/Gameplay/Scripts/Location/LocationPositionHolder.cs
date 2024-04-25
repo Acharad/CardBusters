@@ -5,6 +5,6 @@ namespace Assets.Gameplay.Scripts.Location
 {
     public class LocationPositionHolder : MonoBehaviour
     {
-        [SerializeField] private List<Transform> locationTransforms;
+        public List<Transform> locationTransforms;
     }
 }

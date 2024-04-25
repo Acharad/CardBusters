@@ -10,7 +10,15 @@ namespace Assets.Gameplay.Scripts.Location
     public class LocationDataSO : ScriptableObject
     {
         [Serializable]
-        public class GameLocationSpriteDictionary : UnitySerializedDictionary<LocationType, Sprite> { }
-        [SerializeField] public GameLocationSpriteDictionary gameLocationSpriteDictionary;
+        public class GameLocationViewDictionary : UnitySerializedDictionary<LocationType, LocationData> { }
+        [SerializeField] public GameLocationViewDictionary gameLocationViewDictionary;
+    }
+
+
+    [Serializable]
+    public class LocationData
+    {
+        public LocationView LocationView;
+        public LocationModel LocationModel;
     }
 }

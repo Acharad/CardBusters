@@ -6,6 +6,6 @@ public class SceneLoaderInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.Bind<SceneLoader>().AsSingle().WithArguments(TimeSpan.FromSeconds(5));
+        Container.Bind<SceneLoader>().AsSingle().WithArguments(TimeSpan.FromSeconds(1));
     }
 }

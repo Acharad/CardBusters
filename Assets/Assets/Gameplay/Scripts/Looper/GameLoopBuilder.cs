@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Assets.Gameplay.Scripts.Looper;
 using UnityEngine;
@@ -11,8 +12,9 @@ namespace Assets.Gameplay.Scripts.Looper
         [SerializeField] protected Transform internalFieldCreationActionsParent;
         [SerializeField] protected Transform internalWinActionsParent;
         [SerializeField] protected Transform internalLoseActionsParent;
-        [SerializeField] protected Transform internalPlayOnToGameActionsParent;
-    
+        [SerializeField] protected Transform internalTurnEndParent;
+        [SerializeField] protected Transform internalTurnStartParent;
+        
         [Sirenix.OdinInspector.ShowInInspector] 
         protected List<ITick> InternalLoopList;
 
@@ -27,6 +29,12 @@ namespace Assets.Gameplay.Scripts.Looper
 
         [Sirenix.OdinInspector.ShowInInspector] 
         protected List<ITick> InternalLoseActionsList;
+
+        [Sirenix.OdinInspector.ShowInInspector]
+        protected List<ITick> InternalTurnEndActionsList;
+        
+        [Sirenix.OdinInspector.ShowInInspector]
+        protected List<ITick> InternalTurnStartActionsList;
         
 
         public virtual void BuildLooper(ref List<ITick> loopList)
@@ -69,6 +77,22 @@ namespace Assets.Gameplay.Scripts.Looper
             }
         }
 
+        public virtual void BuildTurnEndActions(ref List<ITick> loopList)
+        {
+            for (int i = 0; i < InternalTurnEndActionsList.Count; i++)
+            {
+                loopList.Add(InternalTurnEndActionsList[i]);
+            }
+        }
+        
+        public virtual void BuildTurnStartActions(ref List<ITick> loopList)
+        {
+            for (int i = 0; i < InternalTurnStartActionsList.Count; i++)
+            {
+                loopList.Add(InternalTurnStartActionsList[i]);
+            }
+        }
+
         
 
         private void OnValidate()
@@ -90,6 +114,8 @@ namespace Assets.Gameplay.Scripts.Looper
             PopulateInternalFieldCreationActionsList();
             PopulateInternalWinActionsList();
             PopulateInternalLoseActionsList();
+            PopulateInternalTurnEndActionsList();
+            PopulateInternalTurnStartActionsList();
         }
 
         private bool ValidateInternalParents()
@@ -215,15 +241,63 @@ namespace Assets.Gameplay.Scripts.Looper
 
                 InternalLoseActionsList.Clear();
 
-                ITick ChildTick;
-
                 for (int i = 0; i < internalLoseActionsParent.childCount; i++)
                 {
-                    ChildTick = internalLoseActionsParent.GetChild(i).GetComponent<ITick>();
-                    InternalLoseActionsList.Add(ChildTick);
+                    var childTick = internalLoseActionsParent.GetChild(i).GetComponent<ITick>();
+                    InternalLoseActionsList.Add(childTick);
                 }
             }
             catch (System.Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
+
+        [Sirenix.OdinInspector.ShowInInspector]
+        public void PopulateInternalTurnEndActionsList()
+        {
+            try
+            {
+                if (InternalTurnEndActionsList == null)
+                {
+                    InternalTurnEndActionsList = new();
+                }
+                
+                InternalTurnEndActionsList.Clear();
+
+                for (int i = 0; i < internalTurnEndParent.childCount; i++)
+                {
+                    var childTick = internalTurnEndParent.GetChild(i).GetComponent<ITick>();
+                    InternalTurnEndActionsList.Add(childTick);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
+        
+        [Sirenix.OdinInspector.ShowInInspector]
+        public void PopulateInternalTurnStartActionsList()
+        {
+            try
+            {
+                if (InternalTurnStartActionsList == null)
+                {
+                    InternalTurnStartActionsList = new();
+                }
+                
+                InternalTurnStartActionsList.Clear();
+
+                for (int i = 0; i < internalTurnStartParent.childCount; i++)
+                {
+                    var childTick = internalTurnStartParent.GetChild(i).GetComponent<ITick>();
+                    InternalTurnStartActionsList.Add(childTick);
+                }
+                
+            }
+            catch (Exception e)
             {
                 Debug.LogError(e);
             }

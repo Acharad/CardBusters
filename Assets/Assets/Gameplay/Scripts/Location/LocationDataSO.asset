@@ -12,7 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfccd891a0c15943a800d3a7d6ebe9f, type: 3}
   m_Name: LocationDataSO
   m_EditorClassIdentifier: 
-  gameLocationSpriteDictionary:
-    keyData: 02000000
+  gameLocationViewDictionary:
+    keyData: 020000000300000004000000
     valueData:
-    - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - LocationView: {fileID: 8044093370395170187, guid: 5fed7b78744688943a8235f080e02e87, type: 3}
+      LocationModel:
+        <HideSprite>k__BackingField: {fileID: 0}
+        <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescText>k__BackingField: 
+        <RevealTurnCount>k__BackingField: 0
+        <Animator>k__BackingField: {fileID: 0}
+        <IsRevealed>k__BackingField: 0
+    - LocationView: {fileID: 2389632309451664429, guid: a28b69d0511abd64cac7a2dbfe26496d, type: 3}
+      LocationModel:
+        <HideSprite>k__BackingField: {fileID: 0}
+        <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescText>k__BackingField: 
+        <RevealTurnCount>k__BackingField: 0
+        <Animator>k__BackingField: {fileID: 0}
+        <IsRevealed>k__BackingField: 0
+    - LocationView: {fileID: -7124068727459183031, guid: 6b61ef60ec2856245a34c7522aff64cc, type: 3}
+      LocationModel:
+        <HideSprite>k__BackingField: {fileID: 0}
+        <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescText>k__BackingField: 
+        <RevealTurnCount>k__BackingField: 0
+        <Animator>k__BackingField: {fileID: 0}
+        <IsRevealed>k__BackingField: 0
