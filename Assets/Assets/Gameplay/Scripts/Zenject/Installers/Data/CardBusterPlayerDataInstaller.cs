@@ -1,4 +1,6 @@
+using Assets.Gameplay.Scripts.DataSystem;
 using Assets.Gameplay.Scripts.DataSystem.Models;
+using Assets.Gameplay.Scripts.DataSystem.Views;
 using Zenject;
 
 namespace Assets.Gameplay.Scripts.Zenject.Installers.Data
@@ -9,7 +11,12 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers.Data
 
         public override void InstallBindings()
         {
-            Container.Bind<SettingsDataModel>().AsTransient().WithConcreteId(_settingsDataFileName); 
+            Container.Bind<PlayerDeckData>().AsSingle();
+            Container.Bind<CardBusterPlayerData>().AsSingle();
+
+            
+            // Container.Bind<SettingsDataModel>().FromResolveGetter<CardBusterPlayerData>(data => data.SettingsDataModel).AsSingle();
+            // Container.Bind<SettingsDataView>().AsTransient().WithConcreteId(_settingsDataFileName); 
         }
     }
 }

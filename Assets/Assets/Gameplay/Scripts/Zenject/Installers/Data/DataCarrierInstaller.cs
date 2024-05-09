@@ -8,13 +8,11 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers.Data
     {
         public override void InstallBindings()
         {
-            Container.Bind<DataCarrier<GameplayCardDataModel>>().WithId(DataCarrierIDs.GamePlayDataId).AsCached();
+            // Container.Bind<DataCarrier<GameplayCardDataModel>>().WithId(DataCarrierIds.GamePlayDataId).AsCached();
+            //Container.Bind<DataCarrier<PlayerDeckData>>().WithId(DataCarrierIds.PlayerDeckData).AsCached();
         }
     }
 
 
-    public class DataCarrierIDs
-    {
-        public const string GamePlayDataId = "GamePlayData";
-    }
+    
 }

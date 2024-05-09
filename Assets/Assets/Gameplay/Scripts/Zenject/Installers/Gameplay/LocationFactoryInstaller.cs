@@ -1,6 +1,5 @@
 using Assets.Gameplay.Scripts.Location;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Assets.Gameplay.Scripts.Zenject.Installers.Gameplay

@@ -7,8 +7,7 @@ namespace Assets.Gameplay.Scripts.Card
 {
     public class CardView : MonoBehaviour, IOnRevealCard, IOnGoingCard
     {
-        [SerializeField] private SpriteRenderer cardSpriteRenderer;
-        [SerializeField] private SpriteRenderer revealSpriteRenderer;
+        [SerializeField] private Image cardImage;
         [SerializeField] private TextMeshProUGUI cardText;
         
         public event Action OnRevealObjectAdded;
@@ -16,16 +15,17 @@ namespace Assets.Gameplay.Scripts.Card
         
         private CardModel _cardModel;
         
-        public CardView(CardModel cardModel)
+        public void Init(CardModel cardModel)
         {
             _cardModel = cardModel;
+            Prepare();
         }
 
         public void Prepare()
         {
-            cardSpriteRenderer.sprite = _cardModel.CardSprite;
-            revealSpriteRenderer.sprite = _cardModel.RevealSprite;
-            cardText.text = _cardModel.CardText;
+            cardImage.sprite = _cardModel.CardSprite;
+            //revealSpriteRenderer.sprite = _cardModel.RevealSprite;
+            cardText.text = _cardModel.CardName;
         }
 
         public virtual void OnRevealFunc()
@@ -37,8 +37,6 @@ namespace Assets.Gameplay.Scripts.Card
         {
             OnGoingFunctionAdded?.Invoke();
         }
-        
-        // public void 
 
         public void RemoveCard()
         {

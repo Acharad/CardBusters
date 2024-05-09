@@ -12,15 +12,14 @@ namespace Assets.Gameplay.Scripts.GamePlay
     {
         public event Action OnLevelDataLoaded;
 
-        private DataCarrier<GameplayCardDataModel> _playerCardData;
+        //private DataCarrier<GameplayCardDataModel> _playerCardData;
         private GameLooper _gameLooper;
 
         
         [Inject]
-        private void Construct([Inject(Id = DataCarrierIDs.GamePlayDataId)] DataCarrier<GameplayCardDataModel> playerCardData,
-            GameLooper gameLooper)
+        private void Construct(GameLooper gameLooper)
         {
-            _playerCardData = playerCardData;
+            //_playerCardData = playerCardData;
             _gameLooper = gameLooper;
         }
 

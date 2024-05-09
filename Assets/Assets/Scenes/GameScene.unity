@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5561481774471732340, guid: 55e3aeb79d50d6c47b99d64538661f9c, type: 3}
+      propertyPath: cardFactory
+      value: 
+      objectReference: {fileID: 1323848548}
     - target: {fileID: 5593659680550548198, guid: 55e3aeb79d50d6c47b99d64538661f9c, type: 3}
       propertyPath: locationFactory
       value: 
@@ -338,10 +342,7 @@ PrefabInstance:
       value: P_Canvas_Game_Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1269668569635197870, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
-    - {fileID: 7490526507322391555, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
-    - {fileID: 6074438911721777852, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
@@ -354,6 +355,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d188a8d0ec6f109468def0352efcc52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1323848548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4571811924426966627, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
+  m_PrefabInstance: {fileID: 1323848546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48f331bf8be4924c9b4e3992c46beb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2072124309

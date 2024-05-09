@@ -11,5 +11,7 @@ namespace Assets.Gameplay.Scripts.Location
         Atlantis = 3,
         // after turn 4 whoover is winning this location draws 2 card.
         Asgard = 4,
+        //ruins not special location
+        Ruins = 5,
     }
 }

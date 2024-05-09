@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1c2f4094c4c6e42ade154a73d9bb7a, type: 3}
+  m_Name: CardDataSo
+  m_EditorClassIdentifier: 
+  gameCardViewDictionary:
+    keyData: 040000000200000003000000
+    valueData:
+    - cardView: {fileID: 4423225090445528603, guid: eab7e5de91dee7e4d85ae4576d78c99f, type: 3}
+    - cardView: {fileID: 7000623155911770486, guid: 9ed92e643788c8843b80c180f99453f9, type: 3}
+    - cardView: {fileID: 986747937028098408, guid: dc6d9b787189452438f8725c419c2313, type: 3}

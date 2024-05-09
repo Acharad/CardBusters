@@ -1,4 +1,5 @@
 using System;
+using Assets.Gameplay.Scripts.Card;
 using Assets.Gameplay.Scripts.DataSystem.Models;
 using Assets.Gameplay.Scripts.DataSystem.Views;
 using UnityEngine;
@@ -10,20 +11,32 @@ namespace Assets.Gameplay.Scripts.DataSystem
     {
         [NonSerialized] public SettingsDataModel SettingsDataModel;
         private SettingsDataView _settingsDataView;
+        
 
-        [NonSerialized] public GameplayCardDataModel GameplayCardDataModel;
-        private GameplayCardDataView _gameplayCardDataView;
+        public PlayerDeckData PlayerDeckData;
 
 
         [Inject]
-        private void Construct(SettingsDataView settingsDataView, GameplayCardDataView gameplayCardDataView)
+        private void Construct(PlayerDeckData playerDeckData)
         {
-            _settingsDataView = settingsDataView;
-            _gameplayCardDataView = gameplayCardDataView;
+            //_settingsDataView = settingsDataView;
+            
+            
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
 
             
-            GameplayCardDataModel = _gameplayCardDataView.Load();
-            SettingsDataModel = _settingsDataView.Load();
+            //SettingsDataModel = _settingsDataView.Load();
         }
     }
 }
