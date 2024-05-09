@@ -20,11 +20,11 @@ namespace Assets.Gameplay.Scripts.DataSystem
         private void Construct(PlayerDeckData playerDeckData)
         {
             //_settingsDataView = settingsDataView;
+            PlayerDeckData = playerDeckData;
             
-            
             PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            PlayerDeckData.PlayerDeck.Add(CardType.Medusa);
+            PlayerDeckData.PlayerDeck.Add(CardType.QuickSilver);
             PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
             PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
             PlayerDeckData.PlayerDeck.Add(CardType.Hulk);

@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6602313946471390164, guid: 6b063dc246a6a5a45a327ce057236d75, type: 3}
+      propertyPath: drawCardCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7972584036316921505, guid: 6b063dc246a6a5a45a327ce057236d75, type: 3}
       propertyPath: m_Name
       value: TickDrawCard

@@ -40,6 +40,12 @@ namespace Assets.Gameplay.Scripts.Location
                 case LocationType.Atlantis:
                     locationView = CreateAtlantisLocation(parent ,locationRevealInt);
                     break;
+                case LocationType.Ruins:
+                    locationView = CreateRuinsLocation(parent, locationRevealInt);
+                    break;
+                default:
+                    Debug.LogError($"Location cant find  with this : {locationType}");
+                    break;
             }
             if (locationView != null)
                 locationView.GetComponent<RectTransform>().localPosition = Vector3.one;
@@ -84,6 +90,19 @@ namespace Assets.Gameplay.Scripts.Location
             atlantisLocation.Init(locationData.LocationModel, revealCount);
             
             return atlantisLocation;
+        }
+        
+        private LocationView CreateRuinsLocation(Transform parent, int revealCount)
+        {
+            if (!_locationDataSo.gameLocationViewDictionary.TryGetValue(LocationType.Ruins, out var locationData))
+            {
+                Debug.LogError("Location sprite is NULL");
+                return null;
+            }
+            var locationView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            locationView.Init(locationData.LocationModel, revealCount);
+            
+            return locationView;
         }
 
 

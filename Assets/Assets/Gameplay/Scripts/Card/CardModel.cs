@@ -6,11 +6,11 @@ namespace Assets.Gameplay.Scripts.Card
     [System.Serializable]
     public class CardModel
     {
-        public Sprite CardSprite { get; set; }
-        public Sprite RevealSprite { get; set; }
-        public string CardName { get; set; }
+        [field:SerializeField] public Sprite CardSprite { get; set; }
+        [field:SerializeField] public Sprite RevealSprite { get; set; }
+        [field:SerializeField] public string CardName { get; set; }
         
-        public int ManaCost { get; set; }
-        public int Power { get; set; }
+        [field:SerializeField] public int ManaCost { get; set; }
+        [field:SerializeField] public int Power { get; set; }
     }
 }

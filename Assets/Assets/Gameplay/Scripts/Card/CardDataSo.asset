@@ -16,5 +16,23 @@ MonoBehaviour:
     keyData: 040000000200000003000000
     valueData:
     - cardView: {fileID: 4423225090445528603, guid: eab7e5de91dee7e4d85ae4576d78c99f, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: Hulk
+        <ManaCost>k__BackingField: 6
+        <Power>k__BackingField: 12
     - cardView: {fileID: 7000623155911770486, guid: 9ed92e643788c8843b80c180f99453f9, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: QuickSilver
+        <ManaCost>k__BackingField: 1
+        <Power>k__BackingField: 2
     - cardView: {fileID: 986747937028098408, guid: dc6d9b787189452438f8725c419c2313, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: Medusa
+        <ManaCost>k__BackingField: 2
+        <Power>k__BackingField: 3

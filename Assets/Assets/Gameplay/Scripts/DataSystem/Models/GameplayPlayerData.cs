@@ -7,8 +7,8 @@ namespace Assets.Gameplay.Scripts.DataSystem.Models
 {
     public class GameplayPlayerData
     {
-        public List<CardType> PlayerCardsInDeck = new();
-        public List<CardModel> PlayerCardsInHand = new();
+        public Stack<CardType> PlayerCardsInDeck = new();
+        public List<CardView> PlayerCardsInHand = new();
         public int ManaCount;
         public int MaxManaCount;
 
@@ -19,7 +19,7 @@ namespace Assets.Gameplay.Scripts.DataSystem.Models
             
             foreach (var cardType in playerCardsInDeck)
             {
-                PlayerCardsInDeck.Add(cardType);
+                PlayerCardsInDeck.Push(cardType);
             }
         }
     }

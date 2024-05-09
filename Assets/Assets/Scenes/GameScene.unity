@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneContext_Game
       objectReference: {fileID: 0}
+    - target: {fileID: 8710229570510777396, guid: 55e3aeb79d50d6c47b99d64538661f9c, type: 3}
+      propertyPath: deckPositionHolder
+      value: 
+      objectReference: {fileID: 1323848549}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -344,7 +348,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1840011541784745973, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1323848551}
   m_SourcePrefab: {fileID: 100100000, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
 --- !u!114 &1323848547 stripped
 MonoBehaviour:
@@ -368,6 +375,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f331bf8be4924c9b4e3992c46beb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1323848549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 848519814359543732, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
+  m_PrefabInstance: {fileID: 1323848546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323848550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27904db9afd7af543974f66cc81fac81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1323848550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1840011541784745973, guid: 30f5c31934685a24fa9f947fa6cd24bc, type: 3}
+  m_PrefabInstance: {fileID: 1323848546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1323848551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323848550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &2072124309
 GameObject:
   m_ObjectHideFlags: 0

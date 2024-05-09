@@ -11,7 +11,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalFieldCreationLoops
         [Inject] private CardBusterPlayerData _cardBusterPlayerData;
         public override IEnumerator Tick()
         {
-            //_gameplayPlayerData.Init(_cardBusterPlayerData.PlayerDeckData.playerDeck, 3, 3);
+            _gameplayPlayerData.Init(_cardBusterPlayerData.PlayerDeckData.PlayerDeck, 3, 3);
             yield break;
         }
     }
