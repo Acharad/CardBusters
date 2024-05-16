@@ -3,17 +3,15 @@ using Assets.Gameplay.Scripts.Events;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
+namespace Assets.Gameplay.Scripts.Looper.InternalGameEndLoops
 {
-    public class TickTurnEnd : TickBase
+    public class TickGameEnd : TickBase
     {
         [Inject] private SignalBus _signalBus;
-
-
         public override IEnumerator Tick()
         {
-            _signalBus.Fire<IGameplayEvents.OnTurnEnd>();
-            Debug.Log("Game Play Event | On Turn End");
+            _signalBus.Fire<IGameplayEvents.OnGameEnd>();
+            Debug.Log("Game Play Events | On game end.");
             yield break;
         }
     }

@@ -17,15 +17,19 @@ namespace Assets.Gameplay.Scripts.Looper.InternalFieldCreationLoops
         
         public override IEnumerator Tick()
         {
-            Debug.Log(_gameplayPlayerData.PlayerCardsInDeck);
-            
             for (var i = 0; i < drawCardCount; i++)
             {
                 var cardType = _gameplayPlayerData.PlayerCardsInDeck.Pop();
                 var createdCard = _cardFactory.CreateCard(cardType, _deckPositionHolder.deckTransform);
                 _gameplayPlayerData.PlayerCardsInHand.Add(createdCard);
             }
-            
+
+            Debug.Log("Player Cards in deck count " + _gameplayPlayerData.PlayerCardsInDeck.Count);
+            foreach (var cardType in _gameplayPlayerData.PlayerCardsInDeck)
+            {
+                Debug.Log("Player Cards In Deck Type : " + cardType);
+            }
+            Debug.Log("---------");
             
             yield break;
         }

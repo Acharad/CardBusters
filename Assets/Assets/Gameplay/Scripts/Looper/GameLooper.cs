@@ -23,7 +23,7 @@ namespace Assets.Gameplay.Scripts.Looper
         [SerializeField] private GameLoopBuilder currentGameLoopBuilder;
         
         [Sirenix.OdinInspector.ShowInInspector]
-        private List<ITick> _loopList;
+        private List<ITick> _gameEndActionsList;
 
         [Sirenix.OdinInspector.ShowInInspector]
         private List<ITick> _firstOneTimeActionsList;
@@ -77,7 +77,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
         private bool _duplicateCheck;
         
-        private Coroutine _mainGameLoop;
+        private Coroutine _gameEndLoop;
         private Coroutine _loseActionsCor;
         private Coroutine _currentLoseActionCor;
         private Coroutine _currentTurnEndActionsCor;
@@ -135,7 +135,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
         private void InitializeLoopList()
         {
-            _loopList = new List<ITick>();
+            _gameEndActionsList = new List<ITick>();
             _firstOneTimeActionsList = new List<ITick>();
             _fieldCreationActionsList = new List<ITick>();
             _winActionsList = new List<ITick>();
@@ -177,7 +177,7 @@ namespace Assets.Gameplay.Scripts.Looper
                 return;
             }
 
-            _loopList.Clear();
+            _gameEndActionsList.Clear();
             _firstOneTimeActionsList.Clear();
             _fieldCreationActionsList.Clear();
             _winActionsList.Clear();
@@ -186,7 +186,7 @@ namespace Assets.Gameplay.Scripts.Looper
             _turnStartActionsList.Clear();
 
             if (currentGameLoopBuilder == null) return;
-            currentGameLoopBuilder.BuildLooper(ref _loopList);
+            currentGameLoopBuilder.BuildGameEndLooper(ref _gameEndActionsList);
             currentGameLoopBuilder.BuildFirstTimeActions(ref _firstOneTimeActionsList);
             currentGameLoopBuilder.BuildFieldCreationActions(ref _fieldCreationActionsList);
             currentGameLoopBuilder.BuildWinActions(ref _winActionsList);
@@ -248,23 +248,23 @@ namespace Assets.Gameplay.Scripts.Looper
             }
 
             _currentFieldCreationActionTick = null;
-            StartMainGameLoop();
+            // StartMainGameLoop();
         }
 
-        public void StartMainGameLoop()
+        public void StartGameEndLoop()
         {
             if (!GetIsManagerActive())
                 return;
             
-            if(_mainGameLoop != null)
-                StopCoroutine(_mainGameLoop);
+            if(_gameEndLoop != null)
+                StopCoroutine(_gameEndLoop);
             
-            _mainGameLoop = StartCoroutine(MainGameLoop());
+            _gameEndLoop = StartCoroutine(GameEndLoop());
         }
 
-        private IEnumerator MainGameLoop()
+        private IEnumerator GameEndLoop()
         {
-            foreach (var tick in _loopList)
+            foreach (var tick in _gameEndActionsList)
             {
                 _currentLoopTick = tick.Tick();
 
@@ -373,9 +373,6 @@ namespace Assets.Gameplay.Scripts.Looper
         {
             if (!GetIsManagerActive())
                 return;
-            if (_duplicateCheck)
-                return;
-            _duplicateCheck = true;
 
             _currentTurnEndActionsCor = StartCoroutine(TurnEndActions());
         }
@@ -391,10 +388,14 @@ namespace Assets.Gameplay.Scripts.Looper
                 {
                     yield return _currentTurnEndActionsCor;
                 }
+
+                if (!loseTick.WillStop) continue;
+                _currentTurnEndTick = null;
+                yield break;
             }
 
             _currentTurnEndTick = null;
-
+            StartTurnStartActions();
             yield break;
         }
         
@@ -402,16 +403,14 @@ namespace Assets.Gameplay.Scripts.Looper
         {
             if (!GetIsManagerActive())
                 return;
-            if (_duplicateCheck)
-                return;
-            _duplicateCheck = true;
+            
 
             _currentTurnStartActionsCor = StartCoroutine(TurnStartActions());
         }
 
         private IEnumerator TurnStartActions()
         {
-            foreach (var loseTick in _turnEndActionsList)
+            foreach (var loseTick in _turnStartActionsList)
             {
                 _currentTurnStartTick = loseTick.Tick();
                 _currentTurnStartActionsCor = StartCoroutine(_currentTurnStartTick);
@@ -423,7 +422,7 @@ namespace Assets.Gameplay.Scripts.Looper
             }
 
             _currentTurnStartTick = null;
-
+            // StartMainGameLoop();
             yield break;
         }
         
@@ -449,7 +448,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
         public void InitAllTicks()
         {
-            foreach (var tick in _loopList)
+            foreach (var tick in _gameEndActionsList)
             {
                 try
                 {

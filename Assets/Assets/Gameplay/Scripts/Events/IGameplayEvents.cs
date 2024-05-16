@@ -25,5 +25,15 @@ namespace Assets.Gameplay.Scripts.Events
         public class OnTurnStart
         {
         }
+
+        public class OnPlayerManaChanged
+        {
+            public int Value;
+        }
+
+        public class OnGameEnd
+        {
+            
+        }
     }
 }

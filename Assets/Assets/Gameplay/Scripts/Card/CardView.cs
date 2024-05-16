@@ -9,6 +9,8 @@ namespace Assets.Gameplay.Scripts.Card
     {
         [SerializeField] private Image cardImage;
         [SerializeField] private TextMeshProUGUI cardText;
+        [SerializeField] private TextMeshProUGUI cardMana;
+        [SerializeField] private TextMeshProUGUI cardDamage;
         
         public event Action OnRevealObjectAdded;
         public event Action OnGoingFunctionAdded;
@@ -21,11 +23,13 @@ namespace Assets.Gameplay.Scripts.Card
             Prepare();
         }
 
-        public void Prepare()
+        private void Prepare()
         {
             cardImage.sprite = _cardModel.CardSprite;
             //revealSpriteRenderer.sprite = _cardModel.RevealSprite;
             cardText.text = _cardModel.CardName;
+            cardMana.text = _cardModel.ManaCost.ToString();
+            cardDamage.text = _cardModel.Power.ToString();
         }
 
         public virtual void OnRevealFunc()

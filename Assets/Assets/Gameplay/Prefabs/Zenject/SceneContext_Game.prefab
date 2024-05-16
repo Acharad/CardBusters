@@ -10,30 +10,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[0]
       value: 
-      objectReference: {fileID: 4288242815582796370}
+      objectReference: {fileID: 80578995271740182}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[1]
       value: 
-      objectReference: {fileID: 2660284511645351479}
+      objectReference: {fileID: 5372876479121177866}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[2]
       value: 
-      objectReference: {fileID: 5593659680550548198}
+      objectReference: {fileID: 4288242815582796370}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[3]
       value: 
-      objectReference: {fileID: 5561481774471732340}
+      objectReference: {fileID: 2660284511645351479}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[4]
       value: 
-      objectReference: {fileID: 111166245826161772}
+      objectReference: {fileID: 5593659680550548198}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       propertyPath: _monoInstallers.Array.data[5]
+      value: 
+      objectReference: {fileID: 5561481774471732340}
+    - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
+      propertyPath: _monoInstallers.Array.data[6]
+      value: 
+      objectReference: {fileID: 111166245826161772}
+    - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
+      propertyPath: _monoInstallers.Array.data[7]
       value: 
       objectReference: {fileID: 8710229570510777396}
     - target: {fileID: -2766289834623199280, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
@@ -98,28 +106,47 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 2660284511645351479}
+      addedObject: {fileID: 5372876479121177866}
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 5593659680550548198}
+      addedObject: {fileID: 2660284511645351479}
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 4288242815582796370}
+      addedObject: {fileID: 5593659680550548198}
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 4
-      addedObject: {fileID: 5561481774471732340}
+      addedObject: {fileID: 4288242815582796370}
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 5
-      addedObject: {fileID: 111166245826161772}
+      addedObject: {fileID: 5561481774471732340}
     - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 111166245826161772}
+    - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 8710229570510777396}
+    - targetCorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
+      insertIndex: 8
+      addedObject: {fileID: 80578995271740182}
   m_SourcePrefab: {fileID: 100100000, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
 --- !u!1 &7444765864779238836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8439117372878389187, guid: eb41a63d03905df4d8777d566a7f7aa8, type: 3}
   m_PrefabInstance: {fileID: 1318670227837334135}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5372876479121177866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444765864779238836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042a2e70d008afa4e9604dbc3583ba8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUIInfoHolder: {fileID: 0}
 --- !u!114 &2660284511645351479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +226,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckPositionHolder: {fileID: 0}
+--- !u!114 &80578995271740182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444765864779238836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c342428ca7d7834e9d35c1ec9dad65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6,7 +6,10 @@ using UnityEngine;
 public abstract class TickBase : MonoBehaviour, ITick
 {
     [Sirenix.OdinInspector.ShowInInspector]
-    public bool WillWait => true;
+    public virtual bool WillWait => true;
+
+    [Sirenix.OdinInspector.ShowInInspector]
+    public virtual bool WillStop => false;
     
     public void InitTick()
     {

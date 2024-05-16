@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using Assets.Gameplay.Scripts.Looper;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Assets.Gameplay.Scripts.Looper
 {
     public class GameLoopBuilder : MonoBehaviour, ILooperBuilder
     {
-        [SerializeField] protected Transform internalLoopsParent;
+        [SerializeField] protected Transform gameEndLoopsParent;
         [SerializeField] protected Transform internalFTAsParent;
         [SerializeField] protected Transform internalFieldCreationActionsParent;
         [SerializeField] protected Transform internalWinActionsParent;
@@ -16,7 +17,7 @@ namespace Assets.Gameplay.Scripts.Looper
         [SerializeField] protected Transform internalTurnStartParent;
         
         [Sirenix.OdinInspector.ShowInInspector] 
-        protected List<ITick> InternalLoopList;
+        protected List<ITick> GameEndLoopList;
 
         [Sirenix.OdinInspector.ShowInInspector] 
         protected List<ITick> InternalFTAList;
@@ -37,11 +38,11 @@ namespace Assets.Gameplay.Scripts.Looper
         protected List<ITick> InternalTurnStartActionsList;
         
 
-        public virtual void BuildLooper(ref List<ITick> loopList)
+        public virtual void BuildGameEndLooper(ref List<ITick> loopList)
         {
-            for (int i = 0; i < InternalLoopList.Count; i++)
+            for (int i = 0; i < GameEndLoopList.Count; i++)
             {
-                loopList.Add(InternalLoopList[i]);
+                loopList.Add(GameEndLoopList[i]);
             }
         }
 
@@ -109,7 +110,7 @@ namespace Assets.Gameplay.Scripts.Looper
                 return;
             }
 
-            PopulateInternalLoopList();
+            PopulateGameEndLoopList();
             PopulateInternalFTAsList();
             PopulateInternalFieldCreationActionsList();
             PopulateInternalWinActionsList();
@@ -120,7 +121,7 @@ namespace Assets.Gameplay.Scripts.Looper
 
         private bool ValidateInternalParents()
         {
-            return internalLoopsParent != null
+            return gameEndLoopsParent != null
                    && internalFTAsParent != null
                    && internalFieldCreationActionsParent != null
                    && internalWinActionsParent != null
@@ -128,21 +129,21 @@ namespace Assets.Gameplay.Scripts.Looper
         }
 
         [Sirenix.OdinInspector.Button]
-        public void PopulateInternalLoopList()
+        public void PopulateGameEndLoopList()
         {
             try
             {
-                if (InternalLoopList == null)
+                if (GameEndLoopList == null)
                 {
-                    InternalLoopList = new List<ITick>();
+                    GameEndLoopList = new List<ITick>();
                 }
 
-                InternalLoopList.Clear();
+                GameEndLoopList.Clear();
 
-                for (int i = 0; i < internalLoopsParent.childCount; i++)
+                for (int i = 0; i < gameEndLoopsParent.childCount; i++)
                 {
-                    var childTick = internalLoopsParent.GetChild(i).GetComponent<ITick>();
-                    InternalLoopList.Add(childTick);
+                    var childTick = gameEndLoopsParent.GetChild(i).GetComponent<ITick>();
+                    GameEndLoopList.Add(childTick);
                 }
             }
             catch (System.Exception e)

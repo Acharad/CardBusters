@@ -1,3 +1,4 @@
+using Assets.Gameplay.Scripts.Events;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +10,18 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers
         {
             SignalBusInstaller.Install(Container);
             
-            // decleration info
-            //Container.DeclareSignal<IPlayOnEvents.OnShowPlayOnBar>();
+            //turn events
+            Container.DeclareSignal<IGameplayEvents.OnTurnEnd>();
+            Container.DeclareSignal<IGameplayEvents.OnTurnStart>();
+
+            //game events
+            Container.DeclareSignal<IGameplayEvents.OnGameWin>();
+            Container.DeclareSignal<IGameplayEvents.OnGameLose>();
+            Container.DeclareSignal<IGameplayEvents.OnGameEnd>();
+            
+            
+            //data events
+            Container.DeclareSignal<IGameplayEvents.OnPlayerManaChanged>();
         }
     }
 }
