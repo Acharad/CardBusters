@@ -9,11 +9,14 @@ namespace Assets.Gameplay.Scripts.Location
     {
         [SerializeField] private LocationView locationViewBasePrefab;
         private LocationDataSO _locationDataSo;
+
+        private IInstantiator _instantiator;
         
         [Inject]
-        public void Construct(LocationDataSO locationDataSo)
+        public void Construct(LocationDataSO locationDataSo, IInstantiator instantiator)
         {
             _locationDataSo = locationDataSo;
+            _instantiator = instantiator;
         }
 
         public LocationView CreateLocation(LocationType locationType, Transform parent, int locationRevealInt)
@@ -60,7 +63,10 @@ namespace Assets.Gameplay.Scripts.Location
                 Debug.LogError("Location sprite is NULL");
                 return null;
             }
-            var iceBoxView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            
+            var iceBoxView = _instantiator
+                .InstantiatePrefab(locationData.LocationView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<LocationView>();
             iceBoxView.Init(locationData.LocationModel, revealCount);
             
             return iceBoxView;
@@ -73,7 +79,10 @@ namespace Assets.Gameplay.Scripts.Location
                 Debug.LogError("Location sprite is NULL");
                 return null;
             }
-            var asgardView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            
+            var asgardView = _instantiator
+                .InstantiatePrefab(locationData.LocationView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<LocationView>();
             asgardView.Init(locationData.LocationModel, revealCount);
             
             return asgardView;
@@ -86,7 +95,10 @@ namespace Assets.Gameplay.Scripts.Location
                 Debug.LogError("Location sprite is NULL");
                 return null;
             }
-            var atlantisLocation = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            
+            var atlantisLocation = _instantiator
+                .InstantiatePrefab(locationData.LocationView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<LocationView>();
             atlantisLocation.Init(locationData.LocationModel, revealCount);
             
             return atlantisLocation;
@@ -99,7 +111,10 @@ namespace Assets.Gameplay.Scripts.Location
                 Debug.LogError("Location sprite is NULL");
                 return null;
             }
-            var locationView = Instantiate(locationData.LocationView, Vector3.zero, Quaternion.identity, parent);
+            
+            var locationView = _instantiator
+                .InstantiatePrefab(locationData.LocationView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<LocationView>();
             locationView.Init(locationData.LocationModel, revealCount);
             
             return locationView;

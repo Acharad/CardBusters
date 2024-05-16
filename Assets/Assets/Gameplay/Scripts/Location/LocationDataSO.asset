@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LocationDataSO
   m_EditorClassIdentifier: 
   gameLocationViewDictionary:
-    keyData: 020000000300000004000000
+    keyData: 02000000030000000400000005000000
     valueData:
     - LocationView: {fileID: 8044093370395170187, guid: 5fed7b78744688943a8235f080e02e87, type: 3}
       LocationModel:
@@ -32,6 +32,14 @@ MonoBehaviour:
         <Animator>k__BackingField: {fileID: 0}
         <IsRevealed>k__BackingField: 0
     - LocationView: {fileID: -7124068727459183031, guid: 6b61ef60ec2856245a34c7522aff64cc, type: 3}
+      LocationModel:
+        <HideSprite>k__BackingField: {fileID: 0}
+        <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescText>k__BackingField: 
+        <RevealTurnCount>k__BackingField: 0
+        <Animator>k__BackingField: {fileID: 0}
+        <IsRevealed>k__BackingField: 0
+    - LocationView: {fileID: 1488713691663858661, guid: 21211618eaeee6d4b95d8483fdd7e2f7, type: 3}
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}

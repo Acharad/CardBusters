@@ -6,11 +6,13 @@ namespace Assets.Gameplay.Scripts.Card
     public class CardFactory : MonoBehaviour
     {
         private CardDataSo _cardDataSo;
+        private IInstantiator _instantiator;
         
         [Inject]
-        public void Construct(CardDataSo locationDataSo)
+        public void Construct(CardDataSo locationDataSo, IInstantiator instantiator)
         {
             _cardDataSo = locationDataSo;
+            _instantiator = instantiator;
         }
 
         public CardView CreateCard(CardType cardType, Transform parent)
@@ -55,7 +57,9 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
-            var cardView = Instantiate(cardData.cardView, Vector3.zero, Quaternion.identity, parent);
+
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -67,7 +71,8 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
-            var cardView = Instantiate(cardData.cardView, Vector3.zero, Quaternion.identity, parent);
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -79,7 +84,8 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
-            var cardView = Instantiate(cardData.cardView, Vector3.zero, Quaternion.identity, parent);
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -91,7 +97,8 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
-            var cardView = Instantiate(cardData.cardView, Vector3.zero, Quaternion.identity, parent);
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
             cardView.Init(cardData.cardModel);
             return cardView;
         }
