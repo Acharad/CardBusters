@@ -19,6 +19,7 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers
             Container.DeclareSignal<IGameplayEvents.OnGameLose>();
             Container.DeclareSignal<IGameplayEvents.OnGameEnd>();
             
+            Container.DeclareSignal<IGameplayEvents.OnCardAddedToLocation>();
             
             //data events
             Container.DeclareSignal<IGameplayEvents.OnPlayerManaChanged>();

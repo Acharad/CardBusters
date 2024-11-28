@@ -11,9 +11,9 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnStartActions
         
         public override IEnumerator Tick()
         {
-            foreach (var locationViews in _gameData.GameLocations)
+            foreach (var gameLocationData in _gameData.GameLocationDataList)
             {
-                locationViews.CheckLocationCanReveal(_gameData.TurnCount);
+                gameLocationData.LocationView.CheckLocationCanReveal(_gameData.TurnCount);
             }
 
             yield break;

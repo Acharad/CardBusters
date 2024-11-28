@@ -20,30 +20,26 @@ MonoBehaviour:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
         <DescText>k__BackingField: 
-        <RevealTurnCount>k__BackingField: 0
-        <Animator>k__BackingField: {fileID: 0}
-        <IsRevealed>k__BackingField: 0
+        <LocationName>k__BackingField: Ice Box
+        <LocationMaxCardCount>k__BackingField: 4
     - LocationView: {fileID: 2389632309451664429, guid: a28b69d0511abd64cac7a2dbfe26496d, type: 3}
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
         <DescText>k__BackingField: 
-        <RevealTurnCount>k__BackingField: 0
-        <Animator>k__BackingField: {fileID: 0}
-        <IsRevealed>k__BackingField: 0
+        <LocationName>k__BackingField: Atlantis
+        <LocationMaxCardCount>k__BackingField: 4
     - LocationView: {fileID: -7124068727459183031, guid: 6b61ef60ec2856245a34c7522aff64cc, type: 3}
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
         <DescText>k__BackingField: 
-        <RevealTurnCount>k__BackingField: 0
-        <Animator>k__BackingField: {fileID: 0}
-        <IsRevealed>k__BackingField: 0
+        <LocationName>k__BackingField: Asgard
+        <LocationMaxCardCount>k__BackingField: 4
     - LocationView: {fileID: 1488713691663858661, guid: 21211618eaeee6d4b95d8483fdd7e2f7, type: 3}
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
         <DescText>k__BackingField: 
-        <RevealTurnCount>k__BackingField: 0
-        <Animator>k__BackingField: {fileID: 0}
-        <IsRevealed>k__BackingField: 0
+        <LocationName>k__BackingField: Ruins
+        <LocationMaxCardCount>k__BackingField: 4

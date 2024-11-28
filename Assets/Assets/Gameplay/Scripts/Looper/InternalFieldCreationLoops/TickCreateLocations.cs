@@ -26,8 +26,11 @@ namespace Assets.Gameplay.Scripts.Looper.InternalFieldCreationLoops
                 var locationView = _locationFactory.CreateLocation(LocationType.Random, 
                     _locationPositionHolder.locationTransforms[i],
                     i + 1);
-                
-                _gameData.GameLocations.Add(locationView);
+                GameLocationData gameLocationData = new()
+                {
+                    LocationView = locationView
+                };
+                _gameData.AddGameLocationData(gameLocationData);
             }
             
             yield break;

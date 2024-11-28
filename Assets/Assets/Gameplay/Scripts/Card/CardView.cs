@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Assets.Gameplay.Scripts.Card
 {
@@ -16,6 +17,12 @@ namespace Assets.Gameplay.Scripts.Card
         public event Action OnGoingFunctionAdded;
         
         private CardModel _cardModel;
+
+
+        public CardModel GetData()
+        {
+            return _cardModel;
+        }
         
         public void Init(CardModel cardModel)
         {
@@ -30,6 +37,13 @@ namespace Assets.Gameplay.Scripts.Card
             cardText.text = _cardModel.CardName;
             cardMana.text = _cardModel.ManaCost.ToString();
             cardDamage.text = _cardModel.Power.ToString();
+            // firstTransformPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+            // Debug.Log("ahmet " + firstTransformPosition);
+        }
+
+        public void ResetCardView()
+        {
+            transform.SetParent(_cardModel.DeckPositionHolder);
         }
 
         public virtual void OnRevealFunc()

@@ -252,6 +252,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5405550683188129807}
+  - {fileID: 5194897113810027458}
   - {fileID: 6488867526026764177}
   - {fileID: 8880927781366057105}
   - {fileID: 8051525684586247128}
@@ -315,6 +316,68 @@ MonoBehaviour:
   internalLoseActionsParent: {fileID: 1443397919406922129}
   internalTurnEndParent: {fileID: 6773941714351147125}
   internalTurnStartParent: {fileID: 4404608330444141121}
+--- !u!1001 &488446905514909129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6773941714351147125}
+    m_Modifications:
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967132287952422155, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+      propertyPath: m_Name
+      value: TickLockCards
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+--- !u!4 &5194897113810027458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5679237840526089739, guid: 33549a41f2f3dbb42bd0033267c64ba9, type: 3}
+  m_PrefabInstance: {fileID: 488446905514909129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1021185450196790589
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,6 @@
+using Assets.Gameplay.Scripts.Card;
+using Assets.Gameplay.Scripts.Location;
+
 namespace Assets.Gameplay.Scripts.Events
 {
     public interface IGameplayEvents
@@ -34,6 +37,13 @@ namespace Assets.Gameplay.Scripts.Events
         public class OnGameEnd
         {
             
+        }
+
+        public class OnCardAddedToLocation
+        {
+            public LocationView LocationView;
+            public CardView CardView;
+            public bool IsFromPlayer;
         }
     }
 }

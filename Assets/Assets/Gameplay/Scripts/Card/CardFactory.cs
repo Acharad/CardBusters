@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
@@ -7,6 +8,7 @@ namespace Assets.Gameplay.Scripts.Card
     {
         private CardDataSo _cardDataSo;
         private IInstantiator _instantiator;
+        private int cardCount = 0;
         
         [Inject]
         public void Construct(CardDataSo locationDataSo, IInstantiator instantiator)
@@ -26,7 +28,7 @@ namespace Assets.Gameplay.Scripts.Card
             {
                 
             }
-
+            cardCount++;
             CardView cardView = null;
             switch (cardType)
             {
@@ -58,8 +60,13 @@ namespace Assets.Gameplay.Scripts.Card
                 return null;
             }
 
+            var newCardModel = cardData.cardModel.Clone();
+            cardData.cardModel = newCardModel;
+
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
+            cardData.cardModel.DeckPositionHolder = parent;
+            cardData.cardModel.CardCount = cardCount;
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -71,8 +78,14 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
+            
+            var newCardModel = cardData.cardModel.Clone();
+            cardData.cardModel = newCardModel;
+            
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
+            cardData.cardModel.DeckPositionHolder = parent; 
+            cardData.cardModel.CardCount = cardCount;
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -84,8 +97,14 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
+            
+            var newCardModel = cardData.cardModel.Clone();
+            cardData.cardModel = newCardModel;
+            
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
+            cardData.cardModel.DeckPositionHolder = parent; 
+            cardData.cardModel.CardCount = cardCount;
             cardView.Init(cardData.cardModel);
             return cardView;
         }
@@ -97,8 +116,14 @@ namespace Assets.Gameplay.Scripts.Card
                 Debug.LogError("Card is NULL");
                 return null;
             }
+            
+            var newCardModel = cardData.cardModel.Clone();
+            cardData.cardModel = newCardModel;
+            
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
+            cardData.cardModel.DeckPositionHolder = parent; 
+            cardData.cardModel.CardCount = cardCount;
             cardView.Init(cardData.cardModel);
             return cardView;
         }
