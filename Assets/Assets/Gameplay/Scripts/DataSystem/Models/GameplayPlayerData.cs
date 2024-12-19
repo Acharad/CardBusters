@@ -11,6 +11,7 @@ namespace Assets.Gameplay.Scripts.DataSystem.Models
     {
         public Stack<CardType> PlayerCardsInDeck = new();
         public List<CardView> PlayerCardsInHand = new();
+        public List<CardView> EnemyCardsInHand = new();
         private int _manaCount;
         private int _maxManaCount;
 
@@ -37,6 +38,24 @@ namespace Assets.Gameplay.Scripts.DataSystem.Models
             _manaCount = _maxManaCount;
             SetMana(_maxManaCount);
         }
+        
+        public void DecreaseMana(int value)
+        {
+            _manaCount -= value;
+            _signalBus.Fire(new IGameplayEvents.OnPlayerManaChanged()
+            {
+                Value = _manaCount
+            });
+        }
+
+        public void IncreaseMana(int value)
+        {
+            _manaCount += value;
+            _signalBus.Fire(new IGameplayEvents.OnPlayerManaChanged()
+            {
+                Value = _manaCount
+            });
+        }
 
         public void AddMana(int value)
         {
@@ -58,6 +77,13 @@ namespace Assets.Gameplay.Scripts.DataSystem.Models
             {
                 Value = _manaCount
             });
+        }
+
+        
+
+        public int GetMana()
+        {
+            return _manaCount;
         }
     }
 }

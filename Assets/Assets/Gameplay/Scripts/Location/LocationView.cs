@@ -28,16 +28,19 @@ namespace Assets.Gameplay.Scripts.Location
         public event Action OnLocationRevealed;
         public event Action OnCardAddedToThisLocation;
         public event Action OnCardAddedAfterTurnEnd;
-        private LocationModel _locationModel;
+        protected LocationModel _locationModel;
         private int _turnCount;
+        protected bool _isLocationRevealed;
 
-        private SignalBus _signalBus;
 
         public LinkedList<CardView> PlayedCards = new ();
+        
+        public LinkedList<CardView> EnemyCards = new ();
         
         public LinkedList<CardView> PlayedCardsThisTurn = new ();
         
         [Inject] private CurrentTurnData _turnData;
+        [Inject] protected SignalBus _signalBus;
         
 
         public void Init(LocationModel locationModel, int revealCount)
@@ -56,6 +59,13 @@ namespace Assets.Gameplay.Scripts.Location
             playerCardHolder.Init(_locationModel.LocationMaxCardCount);
 
             Prepare();
+            
+            _signalBus.Subscribe<IGameplayEvents.OnTurnEnd>(TurnEndAction);
+        }
+
+        protected virtual void TurnEndAction()
+        {
+            
         }
 
         public LocationModel GetModel()
@@ -118,12 +128,12 @@ namespace Assets.Gameplay.Scripts.Location
             if (isFromPlayer && playerCardHolder.CanLocateCard())
             {
                 _locationModel.PlayerPower += cardView.GetData().Power;
-                playerPower.text = _locationModel.PlayerPower.ToString();
+                SetLocationValues();
             }
             else if (enemyCardHolder.CanLocateCard())
             {
                 _locationModel.EnemyPower += cardView.GetData().Power;
-                enemyPower.text = _locationModel.PlayerPower.ToString();
+                SetLocationValues();
             }
         }
 
@@ -134,6 +144,12 @@ namespace Assets.Gameplay.Scripts.Location
             
             _locationModel.PreviewEnemyPower = 0;
             enemyPower.text = _locationModel.EnemyPower.ToString();
+        }
+
+        protected void SetLocationValues()
+        {
+            playerPower.text = _locationModel.PlayerPower.ToString();
+            enemyPower.text = _locationModel.PlayerPower.ToString();
         }
 
         public void TryRemoveCard(CardView cardView, bool isFromPlayer = true)
@@ -165,6 +181,8 @@ namespace Assets.Gameplay.Scripts.Location
             if(animator != null)
                 animator.SetTrigger("RevealAnimation");
             OnLocationRevealed?.Invoke();
+            _isLocationRevealed = true;
+            TurnEndAction();
         }
 
         public void ActivateOnRevealFunc()

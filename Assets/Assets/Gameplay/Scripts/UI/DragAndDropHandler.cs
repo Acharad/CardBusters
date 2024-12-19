@@ -1,4 +1,5 @@
 using Assets.Gameplay.Scripts.Card;
+using Assets.Gameplay.Scripts.DataSystem.Models;
 using Assets.Gameplay.Scripts.DataSystem.Turn;
 using Assets.Gameplay.Scripts.Events;
 using UnityEngine;
@@ -16,14 +17,16 @@ namespace Assets.Gameplay.Scripts.UI
         [SerializeField] private CardView cardView;
 
         private GameData _gameData;
+        private GameplayPlayerData _gameplayPlayerData; 
         private SignalBus _signalBus;
         [Inject]
-        public void Construct(GameData gameData, SignalBus signalBus)
+        public void Construct(GameData gameData, SignalBus signalBus, GameplayPlayerData gameplayPlayerData)
         {
             _gameData = gameData;
             _signalBus = signalBus;
-            _firstTransformPosition = transform.position;
+            _gameplayPlayerData = gameplayPlayerData;
             
+            _firstTransformPosition = transform.position;
         }
 
         private Vector3 _firstTransformPosition;
@@ -40,6 +43,7 @@ namespace Assets.Gameplay.Scripts.UI
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
+                if (cardView.GetData().ManaCost > _gameplayPlayerData.GetMana()) return;
                 if (_isLocated && !cardView.GetData().GetIsCardLocked()) return;
                 _firstTransformPosition = transform.position;
             
@@ -53,6 +57,9 @@ namespace Assets.Gameplay.Scripts.UI
                     _isLocated = false;
                     cardView.GetData().CurrentLocation.TryRemoveCard(cardView);
                     cardView.ResetCardView();
+                    
+                    _gameplayPlayerData.IncreaseMana(cardView.GetData().ManaCost);
+                    _gameplayPlayerData.PlayerCardsInHand.Add(cardView);
                 }
             }
             
@@ -71,6 +78,7 @@ namespace Assets.Gameplay.Scripts.UI
         public void OnPointerUp(PointerEventData eventData)
         {
             if (_isLocated) return;
+            if (!_cardCanMove) return;
             _cardCanMove = false;
             float minDif = 99999f;
             GameLocationData minLocationData = null;
@@ -98,6 +106,9 @@ namespace Assets.Gameplay.Scripts.UI
                     IsFromPlayer = true,
                 });
                 minLocationData.LocationView.TryLocateCard(cardView);
+                
+                _gameplayPlayerData.DecreaseMana(cardView.GetData().ManaCost);
+                _gameplayPlayerData.PlayerCardsInHand.Remove(cardView);
             }
         }
 

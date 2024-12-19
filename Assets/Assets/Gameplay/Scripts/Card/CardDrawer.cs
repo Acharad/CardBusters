@@ -14,6 +14,7 @@ namespace Assets.Gameplay.Scripts.Card
 
         public void DrawCard(int count, DrawCardType drawCardType)
         {
+            //Todo add enemy
             CardView createdCard;
             CardType createdCardType;
             if (drawCardType == DrawCardType.FirstTime)

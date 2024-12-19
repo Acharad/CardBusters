@@ -38,11 +38,16 @@ namespace Assets.Gameplay.Scripts.Card
         {
             cardImage.sprite = _cardModel.CardSprite;
             //revealSpriteRenderer.sprite = _cardModel.RevealSprite;
+            ShowCardText();
+            // firstTransformPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+            // Debug.Log("ahmet " + firstTransformPosition);
+        }
+
+        public void ShowCardText()
+        {
             cardText.text = _cardModel.CardName;
             cardMana.text = _cardModel.ManaCost.ToString();
             cardDamage.text = _cardModel.Power.ToString();
-            // firstTransformPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
-            // Debug.Log("ahmet " + firstTransformPosition);
         }
 
         public void ResetCardView()

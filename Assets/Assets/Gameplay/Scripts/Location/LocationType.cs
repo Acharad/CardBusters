@@ -9,7 +9,7 @@ namespace Assets.Gameplay.Scripts.Location
         IceBox = 2,
         // if only one card card get +5 power
         Atlantis = 3,
-        // after turn 4 whoover is winning this location draws 2 card.
+        // after turn 4 draws 2 card. (win condition not added.)
         Asgard = 4,
         //ruins not special location
         Ruins = 5,
