@@ -13,7 +13,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalFieldCreationLoops
         public override IEnumerator Tick()
         {
             Debug.Log(_cardBusterPlayerData.PlayerDeckData.PlayerDeck);
-            _cardBusterPlayerData.PlayerDeckData.PlayerDeck = _cardBusterPlayerData.PlayerDeckData.PlayerDeck.OrderBy(_ => Guid.NewGuid()).ToList();
+            // _cardBusterPlayerData.PlayerDeckData.PlayerDeck = _cardBusterPlayerData.PlayerDeckData.PlayerDeck.OrderBy(_ => Guid.NewGuid()).ToList();
             yield break;
         }
     }

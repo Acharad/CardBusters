@@ -6,6 +6,6 @@ namespace Assets.Gameplay.Scripts.DataSystem.Turn
 {
     public class CurrentTurnData 
     {
-        public List<CardView> PlayedCardsList = new();
+        public LinkedList<CardView> PlayedCardsLinkedList = new();
     }
 }

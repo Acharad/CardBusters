@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Assets.Gameplay.Scripts.Card;
 using Assets.Gameplay.Scripts.DataSystem.Turn;
 using Assets.Gameplay.Scripts.Events;
@@ -25,20 +26,18 @@ namespace Assets.Gameplay.Scripts.Location
         [SerializeField] private TextMeshProUGUI locationName;
         
         public event Action OnLocationRevealed;
-        public event Action<bool, CardView> OnCardAddedToThisLocation;
+        public event Action OnCardAddedToThisLocation;
+        public event Action OnCardAddedAfterTurnEnd;
         private LocationModel _locationModel;
         private int _turnCount;
 
         private SignalBus _signalBus;
+
+        public LinkedList<CardView> PlayedCards = new ();
+        
+        public LinkedList<CardView> PlayedCardsThisTurn = new ();
         
         [Inject] private CurrentTurnData _turnData;
-        
-        // [Inject]
-        // public void Construct(SignalBus signalBus)
-        // {
-        //     _signalBus = signalBus;
-        //     _signalBus.Subscribe<IGameplayEvents.OnTryAddCardToLocation>(TryLocateCard);
-        // }
         
 
         public void Init(LocationModel locationModel, int revealCount)
@@ -59,6 +58,10 @@ namespace Assets.Gameplay.Scripts.Location
             Prepare();
         }
 
+        public LocationModel GetModel()
+        {
+            return _locationModel;
+        }
         private void Prepare()
         {
             hideSpriteImage.sprite = _locationModel.HideSprite;
@@ -79,21 +82,29 @@ namespace Assets.Gameplay.Scripts.Location
         {
             if (isFromPlayer && playerCardHolder.CanLocateCard())
             {
-                _locationModel.PlayerPower += cardView.GetData().Power;
-                playerPower.text = _locationModel.PlayerPower.ToString();
+                _locationModel.PreviewPlayerPower += cardView.GetData().Power;
+                playerPower.text = (_locationModel.PlayerPower + _locationModel.PreviewPlayerPower).ToString();
                 playerCardHolder.LocateCardToThisLocation(cardView);
                 cardView.GetData().CurrentLocation = this;
-                _turnData.PlayedCardsList.Add(cardView);
-                OnCardAddedToThisLocation?.Invoke(this, cardView);
+                _turnData.PlayedCardsLinkedList.AddLast(cardView);
+                OnCardAddedToThisLocation?.Invoke();
+                // ActivateOnRevealFunc(cardView);
+                
+                PlayedCardsThisTurn.AddLast(cardView);
+                PlayedCards.AddLast(cardView);
             }
             else if (enemyCardHolder.CanLocateCard())
             {
-                _locationModel.EnemyPower += cardView.GetData().Power;
-                enemyPower.text = _locationModel.PlayerPower.ToString();
+                _locationModel.PreviewEnemyPower += cardView.GetData().Power;
+                playerPower.text = (_locationModel.EnemyPower + _locationModel.PreviewEnemyPower).ToString();
                 enemyCardHolder.LocateCardToThisLocation(cardView);
                 cardView.GetData().CurrentLocation = this;
-                _turnData.PlayedCardsList.Add(cardView);
-                OnCardAddedToThisLocation?.Invoke(this, cardView);
+                _turnData.PlayedCardsLinkedList.AddLast(cardView);
+                OnCardAddedToThisLocation?.Invoke();
+                // ActivateOnRevealFunc(cardView);
+                
+                PlayedCardsThisTurn.AddLast(cardView);
+                PlayedCards.AddLast(cardView);
             }
             else
             {
@@ -101,12 +112,36 @@ namespace Assets.Gameplay.Scripts.Location
             }
         }
 
+
+        private void CalculateLocationValues(CardView cardView, bool isFromPlayer = true)
+        {
+            if (isFromPlayer && playerCardHolder.CanLocateCard())
+            {
+                _locationModel.PlayerPower += cardView.GetData().Power;
+                playerPower.text = _locationModel.PlayerPower.ToString();
+            }
+            else if (enemyCardHolder.CanLocateCard())
+            {
+                _locationModel.EnemyPower += cardView.GetData().Power;
+                enemyPower.text = _locationModel.PlayerPower.ToString();
+            }
+        }
+
+        private void ResetLocationValues()
+        {
+            _locationModel.PreviewPlayerPower = 0;
+            playerPower.text = _locationModel.PlayerPower.ToString();
+            
+            _locationModel.PreviewEnemyPower = 0;
+            enemyPower.text = _locationModel.EnemyPower.ToString();
+        }
+
         public void TryRemoveCard(CardView cardView, bool isFromPlayer = true)
         {
             _locationModel.PlayerPower -= cardView.GetData().Power;
             playerPower.text = _locationModel.PlayerPower.ToString();
             playerCardHolder.RemoveCardToThisLocation(cardView);
-            _turnData.PlayedCardsList.Remove(cardView);
+            _turnData.PlayedCardsLinkedList.Remove(cardView);
         }
 
         public void CheckLocationCanReveal(int turnCount)
@@ -130,6 +165,21 @@ namespace Assets.Gameplay.Scripts.Location
             if(animator != null)
                 animator.SetTrigger("RevealAnimation");
             OnLocationRevealed?.Invoke();
+        }
+
+        public void ActivateOnRevealFunc()
+        {
+            //todo maybe
+            var head = PlayedCardsThisTurn.First;
+            ResetLocationValues();
+            while (head != null)
+            {
+                OnCardAddedAfterTurnEnd?.Invoke();
+                head.Value.OnRevealFunc(this);
+                CalculateLocationValues(head.Value);
+                head = head.Next;
+            }
+            PlayedCardsThisTurn?.First?.List.Clear();
         }
     }
 }

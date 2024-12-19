@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5968932685231777526}
   - component: {fileID: 6602313946471390164}
   m_Layer: 0
-  m_Name: TickDrawCard
+  m_Name: TickDrawCardTurnEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

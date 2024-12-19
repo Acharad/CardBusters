@@ -1,20 +1,19 @@
 using System.Collections;
 using Assets.Gameplay.Scripts.DataSystem.Turn;
-using UnityEngine;
 using Zenject;
 
 namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
 {
-    public class TickLockCards : TickBase
+    public class TickPlayOnRevealFunctions : TickBase
     {
-        [Inject] private CurrentTurnData _turnData;
+        [Inject] private GameData _gameData;
         public override IEnumerator Tick()
         {
-            foreach (var cardView in _turnData.PlayedCardsLinkedList)
+            foreach (var gameLocationData in _gameData.GameLocationDataList)
             {
-                cardView.GetData().SetIsCardLocked(true);
+                gameLocationData.LocationView.ActivateOnRevealFunc();
             }
-
+            
             yield break;
         }
     }

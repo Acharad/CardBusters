@@ -12,5 +12,8 @@ namespace Assets.Gameplay.Scripts.Card
         Hulk = 4,
         //on reveal if your opponent played a card here this turn +4 2,2
         StarLord = 5,
+        //After you play a card here, +1 Power.
+        Angela = 6,
+        AntMan = 7,
     }
 }

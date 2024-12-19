@@ -1,4 +1,5 @@
 using System;
+using Assets.Gameplay.Scripts.Location;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +14,13 @@ namespace Assets.Gameplay.Scripts.Card
         [SerializeField] private TextMeshProUGUI cardMana;
         [SerializeField] private TextMeshProUGUI cardDamage;
         
+        
+        protected LocationView _locationView;
+        
         public event Action OnRevealObjectAdded;
         public event Action OnGoingFunctionAdded;
         
-        private CardModel _cardModel;
+        protected CardModel _cardModel;
 
 
         public CardModel GetData()
@@ -30,7 +34,7 @@ namespace Assets.Gameplay.Scripts.Card
             Prepare();
         }
 
-        private void Prepare()
+        protected void Prepare()
         {
             cardImage.sprite = _cardModel.CardSprite;
             //revealSpriteRenderer.sprite = _cardModel.RevealSprite;
@@ -46,8 +50,9 @@ namespace Assets.Gameplay.Scripts.Card
             transform.SetParent(_cardModel.DeckPositionHolder);
         }
 
-        public virtual void OnRevealFunc()
+        public virtual void OnRevealFunc(LocationView locationView)
         {
+            _locationView = locationView;
             OnRevealObjectAdded?.Invoke();
         }
 

@@ -16,6 +16,9 @@ namespace Assets.Gameplay.Scripts.Location
         // public Animator Animator {get; set; } // ????
         public bool IsRevealed { get;  set; }
         public int EnemyPower { get; set; }
+        public int PreviewEnemyPower { get; set; }
         public int PlayerPower { get; set; }
+        public int PreviewPlayerPower { get; set; }
+        
     }
 }

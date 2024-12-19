@@ -1,7 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
-
 namespace Assets.Gameplay.Scripts.Card
 {
     public class CardFactory : MonoBehaviour
@@ -30,6 +29,7 @@ namespace Assets.Gameplay.Scripts.Card
             }
             cardCount++;
             CardView cardView = null;
+            //todo switch case kalkabilir.
             switch (cardType)
             {
                 case CardType.Hulk:
@@ -43,6 +43,15 @@ namespace Assets.Gameplay.Scripts.Card
                     break;
                 case CardType.StarLord:
                     cardView = CreateStarLordCard(parent);
+                    break;
+                case CardType.Angela:
+                    cardView = CreateAngelaCard(parent);
+                    break;
+                case CardType.AntMan:
+                    cardView = CreateAntManCard(parent);
+                    break;
+                default:
+                    Debug.LogError("Card doesnt exists");
                     break;
             }
             
@@ -61,13 +70,12 @@ namespace Assets.Gameplay.Scripts.Card
             }
 
             var newCardModel = cardData.cardModel.Clone();
-            cardData.cardModel = newCardModel;
 
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
-            cardData.cardModel.DeckPositionHolder = parent;
-            cardData.cardModel.CardCount = cardCount;
-            cardView.Init(cardData.cardModel);
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
             return cardView;
         }
         
@@ -80,13 +88,12 @@ namespace Assets.Gameplay.Scripts.Card
             }
             
             var newCardModel = cardData.cardModel.Clone();
-            cardData.cardModel = newCardModel;
-            
+
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
-            cardData.cardModel.DeckPositionHolder = parent; 
-            cardData.cardModel.CardCount = cardCount;
-            cardView.Init(cardData.cardModel);
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
             return cardView;
         }
         
@@ -99,13 +106,12 @@ namespace Assets.Gameplay.Scripts.Card
             }
             
             var newCardModel = cardData.cardModel.Clone();
-            cardData.cardModel = newCardModel;
-            
+
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
-            cardData.cardModel.DeckPositionHolder = parent; 
-            cardData.cardModel.CardCount = cardCount;
-            cardView.Init(cardData.cardModel);
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
             return cardView;
         }
         
@@ -118,13 +124,48 @@ namespace Assets.Gameplay.Scripts.Card
             }
             
             var newCardModel = cardData.cardModel.Clone();
-            cardData.cardModel = newCardModel;
-            
+
             var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
                 .GetComponent<CardView>();
-            cardData.cardModel.DeckPositionHolder = parent; 
-            cardData.cardModel.CardCount = cardCount;
-            cardView.Init(cardData.cardModel);
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
+            return cardView;
+        }
+        
+        private CardView CreateAngelaCard(Transform parent)
+        {
+            if (!_cardDataSo.gameCardViewDictionary.TryGetValue(CardType.Angela, out var cardData))
+            {
+                Debug.LogError("Card is NULL");
+                return null;
+            }
+            
+            var newCardModel = cardData.cardModel.Clone();
+
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
+            return cardView;
+        }
+        
+        private CardView CreateAntManCard(Transform parent)
+        {
+            if (!_cardDataSo.gameCardViewDictionary.TryGetValue(CardType.AntMan, out var cardData))
+            {
+                Debug.LogError("Card is NULL");
+                return null;
+            }
+            
+            var newCardModel = cardData.cardModel.Clone();
+
+            var cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, parent)
+                .GetComponent<CardView>();
+            newCardModel.DeckPositionHolder = parent;
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
             return cardView;
         }
     }

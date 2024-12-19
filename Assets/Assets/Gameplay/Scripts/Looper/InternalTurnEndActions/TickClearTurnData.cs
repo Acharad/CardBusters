@@ -1,20 +1,15 @@
 using System.Collections;
 using Assets.Gameplay.Scripts.DataSystem.Turn;
-using UnityEngine;
 using Zenject;
 
 namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
 {
-    public class TickLockCards : TickBase
+    public class TickClearTurnData : TickBase
     {
         [Inject] private CurrentTurnData _turnData;
         public override IEnumerator Tick()
         {
-            foreach (var cardView in _turnData.PlayedCardsLinkedList)
-            {
-                cardView.GetData().SetIsCardLocked(true);
-            }
-
+            _turnData.PlayedCardsLinkedList?.First?.List.Clear();
             yield break;
         }
     }

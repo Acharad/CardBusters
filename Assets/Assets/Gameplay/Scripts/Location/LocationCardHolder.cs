@@ -13,14 +13,14 @@ namespace Assets.Gameplay.Scripts.Location
         {
             _maxCardCount = maxCardCount;
         }
-        
+
         public void LocateCardToThisLocation(CardView cardView)
         {
             if (_currentCardCount < _maxCardCount)
             {
                 _currentCardCount++;
                 cardView.gameObject.transform.SetParent(transform);
-               
+
             }
         }
 
@@ -33,6 +33,11 @@ namespace Assets.Gameplay.Scripts.Location
         public bool CanLocateCard()
         {
             return _currentCardCount < _maxCardCount;
+        }
+
+        public int GetCurrentCardCount()
+        {
+            return _currentCardCount;
         }
     }
 }
