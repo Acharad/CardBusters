@@ -24,6 +24,13 @@ namespace Assets.Gameplay.Scripts.Location
         [SerializeField] private TextMeshProUGUI enemyPower;
         [SerializeField] private TextMeshProUGUI playerPower;
         [SerializeField] private TextMeshProUGUI locationName;
+
+        [SerializeField] private Animator EnemyAnimator;
+        [SerializeField] private Animator PlayerAnimator;
+
+        [SerializeField] private bool _isPlayerWinning = false;
+        [SerializeField] private bool _isEnemyWinning = false;
+        
         
         public event Action OnLocationRevealed;
         public event Action OnCardAddedToThisLocation;
@@ -208,6 +215,41 @@ namespace Assets.Gameplay.Scripts.Location
                 CalculateLocationValues(headEnemy.Value, false);
                 
                 headEnemy = headEnemy.Next;
+            }
+            
+            if (_locationModel.PlayerPower > _locationModel.EnemyPower)
+            {
+                PlayerAnimator.SetTrigger("OnMostPower");
+                if (_isEnemyWinning)
+                {
+                    EnemyAnimator.SetTrigger("OnLoseMostPower");
+                    _isEnemyWinning = false;
+                }
+                _isPlayerWinning = true;
+            }
+            else if (_locationModel.EnemyPower > _locationModel.PlayerPower)
+            {
+                EnemyAnimator.SetTrigger("OnMostPower");
+                if (_isPlayerWinning)
+                {
+                    PlayerAnimator.SetTrigger("OnLoseMostPower");
+                    _isPlayerWinning = false;
+                }
+                _isEnemyWinning = true;
+            }
+            else
+            {
+                if (_isPlayerWinning)
+                {
+                    PlayerAnimator.SetTrigger("OnLoseMostPower");
+                    _isPlayerWinning = false;
+                }
+
+                if (_isEnemyWinning)
+                {
+                    EnemyAnimator.SetTrigger("OnLoseMostPower");
+                    _isEnemyWinning = false;
+                }
             }
             
             PlayedCardsThisTurnEnemy?.First?.List.Clear();

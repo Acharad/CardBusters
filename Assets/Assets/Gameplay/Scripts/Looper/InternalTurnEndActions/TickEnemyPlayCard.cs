@@ -55,6 +55,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
                     randomLocation.LocationView.TryLocateCard(randomCard, false);
                 
                     _gameplayPlayerData.DecreaseEnemyMana(randomCard.GetData().ManaCost);
+                    playableCards.Remove(randomCard);
                     _gameplayPlayerData.EnemyCardsInHand.Remove(randomCard);
                     currentMana = _gameplayPlayerData.GetEnemyMana();
                 }

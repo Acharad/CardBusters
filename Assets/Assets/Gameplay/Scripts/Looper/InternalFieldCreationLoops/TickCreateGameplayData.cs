@@ -23,7 +23,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalFieldCreationLoops
         
         public override IEnumerator Tick()
         {
-            _gameplayPlayerData.Init(_cardBusterPlayerData.GameDeckData.PlayerDeck, 3, 3, _cardBusterEnemyData.GameDeckData.EnemyDeck);
+            _gameplayPlayerData.Init(_cardBusterPlayerData.GameDeckData.PlayerDeck, 1, 1, _cardBusterEnemyData.GameDeckData.EnemyDeck);
             _gameData.TurnCount = 0;
             yield break;
         }
