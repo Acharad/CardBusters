@@ -13,27 +13,27 @@ namespace Assets.Gameplay.Scripts.DataSystem
         private SettingsDataView _settingsDataView;
         
 
-        public PlayerDeckData PlayerDeckData;
+        public GameDeckData GameDeckData;
 
 
         [Inject]
-        private void Construct(PlayerDeckData playerDeckData)
+        private void Construct(GameDeckData gameDeckData)
         {
             //_settingsDataView = settingsDataView;
-            PlayerDeckData = playerDeckData;
+            GameDeckData = gameDeckData;
             
-            PlayerDeckData.PlayerDeck.Add(CardType.AntMan);
-            PlayerDeckData.PlayerDeck.Add(CardType.Medusa);
-            PlayerDeckData.PlayerDeck.Add(CardType.Angela);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
-            PlayerDeckData.PlayerDeck.Add(CardType.QuickSilver);
-            PlayerDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.AntMan);
+            GameDeckData.PlayerDeck.Add(CardType.Medusa);
+            GameDeckData.PlayerDeck.Add(CardType.Angela);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
+            GameDeckData.PlayerDeck.Add(CardType.QuickSilver);
+            GameDeckData.PlayerDeck.Add(CardType.Hulk);
 
             
             //SettingsDataModel = _settingsDataView.Load();

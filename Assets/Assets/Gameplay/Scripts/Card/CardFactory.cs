@@ -16,7 +16,7 @@ namespace Assets.Gameplay.Scripts.Card
             _instantiator = instantiator;
         }
 
-        public CardView CreateCard(CardType cardType, Transform parent)
+        public CardView CreateCard(CardType cardType, Transform playerParent, Transform enemyParent, bool isForPlayer)
         {
             if (cardType == CardType.None)
             {
@@ -30,34 +30,41 @@ namespace Assets.Gameplay.Scripts.Card
             cardCount++;
             CardView cardView = null;
             //todo switch case kalkabilir.
-            switch (cardType)
-            {
-                case CardType.Hulk:
-                    cardView = CreateHulkCard(parent);
-                    break;
-                case CardType.Medusa:
-                    cardView = CreateMedusaCard(parent);
-                    break;
-                case CardType.QuickSilver:
-                    cardView = CreateQuickSilverCard(parent);
-                    break;
-                case CardType.StarLord:
-                    cardView = CreateStarLordCard(parent);
-                    break;
-                case CardType.Angela:
-                    cardView = CreateAngelaCard(parent);
-                    break;
-                case CardType.AntMan:
-                    cardView = CreateAntManCard(parent);
-                    break;
-                default:
-                    Debug.LogError("Card doesnt exists");
-                    break;
-            }
+            
+            cardView = CreateCard(playerParent, cardType, enemyParent, isForPlayer);
             
             if (cardView != null)
                 cardView.GetComponent<RectTransform>().localPosition = Vector3.one;
             
+            return cardView;
+        }
+
+        private CardView CreateCard(Transform playerParent, CardType cardType, Transform enemyParent, bool isForPlayer)
+        {
+            if (!_cardDataSo.gameCardViewDictionary.TryGetValue(cardType, out var cardData))
+            {
+                Debug.LogError("Card is NULL");
+                return null;
+            }
+            var newCardModel = cardData.cardModel.Clone();
+
+            CardView cardView;
+            
+            if (isForPlayer)
+            {
+                cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, playerParent)
+                    .GetComponent<CardView>();
+                newCardModel.DeckPositionHolder = playerParent;
+            }
+            else
+            {
+                cardView = _instantiator.InstantiatePrefab(cardData.cardView, Vector3.zero, Quaternion.identity, enemyParent)
+                    .GetComponent<CardView>();
+                newCardModel.DeckPositionHolder = enemyParent;
+            }
+            
+            newCardModel.CardCount = cardCount;
+            cardView.Init(newCardModel);
             return cardView;
         }
         

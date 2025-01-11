@@ -3,8 +3,9 @@ using Assets.Gameplay.Scripts.Card;
 
 namespace Assets.Gameplay.Scripts.DataSystem
 {
-    public class PlayerDeckData
+    public class GameDeckData
     {
         public List<CardType> PlayerDeck = new();
+        public List<CardType> EnemyDeck = new();
     }
 }

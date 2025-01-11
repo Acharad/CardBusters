@@ -34,6 +34,11 @@ namespace Assets.Gameplay.Scripts.Events
             public int Value;
         }
 
+        public class OnEnemyManaChanged
+        {
+            public int Value;
+        }
+
         public class OnGameEnd
         {
             

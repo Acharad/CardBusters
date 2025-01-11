@@ -39,6 +39,8 @@ namespace Assets.Gameplay.Scripts.Location
         
         public LinkedList<CardView> PlayedCardsThisTurn = new ();
         
+        public LinkedList<CardView> PlayedCardsThisTurnEnemy = new ();
+        
         [Inject] private CurrentTurnData _turnData;
         [Inject] protected SignalBus _signalBus;
         
@@ -106,15 +108,14 @@ namespace Assets.Gameplay.Scripts.Location
             else if (enemyCardHolder.CanLocateCard())
             {
                 _locationModel.PreviewEnemyPower += cardView.GetData().Power;
-                playerPower.text = (_locationModel.EnemyPower + _locationModel.PreviewEnemyPower).ToString();
+                enemyPower.text = (_locationModel.EnemyPower + _locationModel.PreviewEnemyPower).ToString();
                 enemyCardHolder.LocateCardToThisLocation(cardView);
                 cardView.GetData().CurrentLocation = this;
-                _turnData.PlayedCardsLinkedList.AddLast(cardView);
                 OnCardAddedToThisLocation?.Invoke();
                 // ActivateOnRevealFunc(cardView);
                 
-                PlayedCardsThisTurn.AddLast(cardView);
-                PlayedCards.AddLast(cardView);
+                PlayedCardsThisTurnEnemy.AddLast(cardView);
+                //PlayedCards.AddLast(cardView);
             }
             else
             {
@@ -149,7 +150,7 @@ namespace Assets.Gameplay.Scripts.Location
         protected void SetLocationValues()
         {
             playerPower.text = _locationModel.PlayerPower.ToString();
-            enemyPower.text = _locationModel.PlayerPower.ToString();
+            enemyPower.text = _locationModel.EnemyPower.ToString();
         }
 
         public void TryRemoveCard(CardView cardView, bool isFromPlayer = true)
@@ -198,6 +199,18 @@ namespace Assets.Gameplay.Scripts.Location
                 head = head.Next;
             }
             PlayedCardsThisTurn?.First?.List.Clear();
+            
+            var headEnemy = PlayedCardsThisTurnEnemy.First;
+            while (headEnemy != null)
+            {
+                OnCardAddedAfterTurnEnd?.Invoke();
+                headEnemy.Value.OnRevealFunc(this);
+                CalculateLocationValues(headEnemy.Value, false);
+                
+                headEnemy = headEnemy.Next;
+            }
+            
+            PlayedCardsThisTurnEnemy?.First?.List.Clear();
         }
     }
 }

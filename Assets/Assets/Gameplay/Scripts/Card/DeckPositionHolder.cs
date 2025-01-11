@@ -6,5 +6,6 @@ namespace Assets.Gameplay.Scripts.Card
     public class DeckPositionHolder : MonoBehaviour
     {
         public Transform deckTransform;
+        public Transform deckTransformForEnemy;
     }
 }

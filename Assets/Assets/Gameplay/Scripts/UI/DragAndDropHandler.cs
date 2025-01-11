@@ -43,7 +43,7 @@ namespace Assets.Gameplay.Scripts.UI
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                if (cardView.GetData().ManaCost > _gameplayPlayerData.GetMana()) return;
+                if (cardView.GetData().ManaCost > _gameplayPlayerData.GetPlayerMana()) return;
                 if (_isLocated && !cardView.GetData().GetIsCardLocked()) return;
                 _firstTransformPosition = transform.position;
             
@@ -58,7 +58,7 @@ namespace Assets.Gameplay.Scripts.UI
                     cardView.GetData().CurrentLocation.TryRemoveCard(cardView);
                     cardView.ResetCardView();
                     
-                    _gameplayPlayerData.IncreaseMana(cardView.GetData().ManaCost);
+                    _gameplayPlayerData.IncreasePlayerMana(cardView.GetData().ManaCost);
                     _gameplayPlayerData.PlayerCardsInHand.Add(cardView);
                 }
             }
@@ -107,7 +107,7 @@ namespace Assets.Gameplay.Scripts.UI
                 });
                 minLocationData.LocationView.TryLocateCard(cardView);
                 
-                _gameplayPlayerData.DecreaseMana(cardView.GetData().ManaCost);
+                _gameplayPlayerData.DecreasePlayerMana(cardView.GetData().ManaCost);
                 _gameplayPlayerData.PlayerCardsInHand.Remove(cardView);
             }
         }

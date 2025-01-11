@@ -30,15 +30,39 @@ namespace Assets.Gameplay.Scripts.Card
                         tempList.Remove(createdCardType);
                         _gameplayPlayerData.PlayerCardsInDeck = new Stack<CardType>(tempList);
                         
-                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform);
+                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, true);
                         _gameplayPlayerData.PlayerCardsInHand.Add(createdCard);
 
                     }
                     else
                     {
                         createdCardType = _gameplayPlayerData.PlayerCardsInDeck.Pop();
-                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform);
+                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, true);
                         _gameplayPlayerData.PlayerCardsInHand.Add(createdCard);
+                    }
+                    
+                }
+                
+                for (var i = 0; i < count; i++)
+                {
+                    
+                    if (_gameplayPlayerData.EnemyCardsInDeck.Contains(CardType.QuickSilver))
+                    {
+                        createdCardType = CardType.QuickSilver;
+                        var tempList = new List<CardType>(_gameplayPlayerData.EnemyCardsInDeck);
+
+                        tempList.Remove(createdCardType);
+                        _gameplayPlayerData.EnemyCardsInDeck = new Stack<CardType>(tempList);
+                        
+                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, false);
+                        _gameplayPlayerData.EnemyCardsInHand.Add(createdCard);
+
+                    }
+                    else
+                    {
+                        createdCardType = _gameplayPlayerData.EnemyCardsInDeck.Pop();
+                        createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, false);
+                        _gameplayPlayerData.EnemyCardsInHand.Add(createdCard);
                     }
                     
                 }
@@ -46,17 +70,26 @@ namespace Assets.Gameplay.Scripts.Card
             else if (drawCardType == DrawCardType.TurnEnd)
             {
                 createdCardType = _gameplayPlayerData.PlayerCardsInDeck.Pop();
-                createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform);
+                createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, true);
                 _gameplayPlayerData.PlayerCardsInHand.Add(createdCard);
+
+                createdCardType = _gameplayPlayerData.EnemyCardsInDeck.Pop();
+                createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, false);
+                _gameplayPlayerData.EnemyCardsInHand.Add(createdCard);
             }
             
             
             Debug.Log("Player Cards in deck count " + _gameplayPlayerData.PlayerCardsInDeck.Count);
+            Debug.Log("Enemy Cards in deck count " + _gameplayPlayerData.EnemyCardsInDeck.Count);
             foreach (var cardType in _gameplayPlayerData.PlayerCardsInDeck)
             {
                 Debug.Log("Player Cards In Deck Type : " + cardType);
             }
-            Debug.Log("---------");
+            
+            foreach (var cardType in _gameplayPlayerData.EnemyCardsInDeck)
+            {
+                Debug.Log("Enemy Cards In Deck Type : " + cardType);
+            }
         }
     }
 

@@ -11,10 +11,12 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers.Data
 
         public override void InstallBindings()
         {
-            Container.Bind<PlayerDeckData>().AsSingle();
-            Container.Bind<CardBusterPlayerData>().AsSingle();
-
+            Container.Bind<GameDeckData>().AsSingle();
             
+            Container.Bind<CardBusterPlayerData>().AsSingle();
+            Container.Bind<CardBusterEnemyData>().AsSingle();
+
+
             // Container.Bind<SettingsDataModel>().FromResolveGetter<CardBusterPlayerData>(data => data.SettingsDataModel).AsSingle();
             // Container.Bind<SettingsDataView>().AsTransient().WithConcreteId(_settingsDataFileName); 
         }

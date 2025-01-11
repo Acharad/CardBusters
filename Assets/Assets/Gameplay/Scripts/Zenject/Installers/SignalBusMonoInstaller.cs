@@ -23,6 +23,7 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers
             
             //data events
             Container.DeclareSignal<IGameplayEvents.OnPlayerManaChanged>();
+            Container.DeclareSignal<IGameplayEvents.OnEnemyManaChanged>();
         }
     }
 }

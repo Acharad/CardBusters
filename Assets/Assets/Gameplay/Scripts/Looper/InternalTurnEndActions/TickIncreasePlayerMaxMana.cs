@@ -10,7 +10,8 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
         
         public override IEnumerator Tick()
         {
-            _gameplayPlayerData.IncreaseMaxMana();
+            _gameplayPlayerData.IncreasePlayerMaxMana();
+            _gameplayPlayerData.IncreaseEnemyMaxMana();
             yield break;
         }
     }
