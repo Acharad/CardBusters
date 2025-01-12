@@ -32,6 +32,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Card_Hulk
       objectReference: {fileID: 0}
+    - target: {fileID: 2484740825899349386, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4af729de1d7f3ca44b32f4f5fc410596, type: 3}
+    - target: {fileID: 7391651921899988160, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7391651921899988160, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d740177571f79f4fae6125fe3f3f7a1, type: 3}
+    - target: {fileID: 7391651921899988160, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7391651921899988160, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7391651921899988160, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

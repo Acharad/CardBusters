@@ -13,6 +13,7 @@ namespace Assets.Gameplay.Scripts.Card
         [SerializeField] private TextMeshProUGUI cardText;
         [SerializeField] private TextMeshProUGUI cardMana;
         [SerializeField] private TextMeshProUGUI cardDamage;
+        [SerializeField] private TextMeshProUGUI cardInfoText;
         
         
         protected LocationView _locationView;
@@ -36,11 +37,13 @@ namespace Assets.Gameplay.Scripts.Card
 
         protected void Prepare()
         {
-            cardImage.sprite = _cardModel.CardSprite;
+            // cardImage.sprite = _cardModel.CardSprite;
             //revealSpriteRenderer.sprite = _cardModel.RevealSprite;
             ShowCardText();
             // firstTransformPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
             // Debug.Log("ahmet " + firstTransformPosition);
+
+            cardInfoText.text = _cardModel.CardInfo;
         }
 
         public void ShowCardText()

@@ -18,13 +18,14 @@ namespace Assets.Gameplay.Scripts.Location
         [SerializeField] private Animator animator;
 
         [SerializeField] public LocationCardHolder enemyCardHolder; 
-        [SerializeField] public LocationCardHolder playerCardHolder; 
-        
+        [SerializeField] public LocationCardHolder playerCardHolder;
+
+        [SerializeField] private TextMeshProUGUI descTextAfterReveal;
         [SerializeField] private TextMeshProUGUI descText;
         [SerializeField] private TextMeshProUGUI enemyPower;
         [SerializeField] private TextMeshProUGUI playerPower;
         [SerializeField] private TextMeshProUGUI locationName;
-
+        
         [SerializeField] private Animator EnemyAnimator;
         [SerializeField] private Animator PlayerAnimator;
 
@@ -59,10 +60,13 @@ namespace Assets.Gameplay.Scripts.Location
                 HideSprite = locationModel.HideSprite,
                 OpenedSprite = locationModel.OpenedSprite,
                 DescText = locationModel.DescText,
+                DescTextAfterReveal = locationModel.DescTextAfterReveal,
                 RevealTurnCount = revealCount,
                 LocationName = locationModel.LocationName,
                 LocationMaxCardCount = locationModel.LocationMaxCardCount
             };
+
+            descTextAfterReveal.text = _locationModel.DescTextAfterReveal;
             
             enemyCardHolder.Init(_locationModel.LocationMaxCardCount);
             playerCardHolder.Init(_locationModel.LocationMaxCardCount);
@@ -84,8 +88,9 @@ namespace Assets.Gameplay.Scripts.Location
         private void Prepare()
         {
             hideSpriteImage.sprite = _locationModel.HideSprite;
-            openedSpriteImage.sprite = _locationModel.OpenedSprite;
+            // openedSpriteImage.sprite = _locationModel.OpenedSprite;
             locationName.text = _locationModel.LocationName;
+            locationName.gameObject.SetActive(false);
             enemyPower.text = "0";
             playerPower.text = "0";
             SetDescriptionText(0);
@@ -162,6 +167,7 @@ namespace Assets.Gameplay.Scripts.Location
 
         public void TryRemoveCard(CardView cardView, bool isFromPlayer = true)
         {
+            PlayedCardsThisTurn.Remove(cardView);
             _locationModel.PlayerPower -= cardView.GetData().Power;
             playerPower.text = _locationModel.PlayerPower.ToString();
             playerCardHolder.RemoveCardToThisLocation(cardView);
@@ -219,7 +225,8 @@ namespace Assets.Gameplay.Scripts.Location
             
             if (_locationModel.PlayerPower > _locationModel.EnemyPower)
             {
-                PlayerAnimator.SetTrigger("OnMostPower");
+                if(!_isPlayerWinning)
+                    PlayerAnimator.SetTrigger("OnMostPower");
                 if (_isEnemyWinning)
                 {
                     EnemyAnimator.SetTrigger("OnLoseMostPower");
@@ -229,7 +236,8 @@ namespace Assets.Gameplay.Scripts.Location
             }
             else if (_locationModel.EnemyPower > _locationModel.PlayerPower)
             {
-                EnemyAnimator.SetTrigger("OnMostPower");
+                if(!_isEnemyWinning)
+                    EnemyAnimator.SetTrigger("OnMostPower");
                 if (_isPlayerWinning)
                 {
                     PlayerAnimator.SetTrigger("OnLoseMostPower");
@@ -253,6 +261,29 @@ namespace Assets.Gameplay.Scripts.Location
             }
             
             PlayedCardsThisTurnEnemy?.First?.List.Clear();
+        }
+
+        public LocationWinTypes GetIfPlayerWinning()
+        {
+            if (_locationModel.PlayerPower > _locationModel.EnemyPower)
+            {
+                return LocationWinTypes.Win;
+            }
+            if (_locationModel.EnemyPower > _locationModel.PlayerPower)
+            {
+                return LocationWinTypes.Lose;
+            }
+            if (_locationModel.PlayerPower == _locationModel.EnemyPower)
+            {
+                return LocationWinTypes.Draw;
+            }
+
+            return LocationWinTypes.Win;
+        }
+
+        public int GetPlayerPowerDif()
+        {
+            return _locationModel.PlayerPower - _locationModel.EnemyPower;
         }
     }
 }

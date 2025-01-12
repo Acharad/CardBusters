@@ -15,6 +15,7 @@ namespace Assets.Gameplay.Scripts.UI
         private bool IsCardLocked => cardView.GetData().GetIsCardLocked();
 
         [SerializeField] private CardView cardView;
+        [SerializeField] private GameObject cardInfoHolder;
 
         private GameData _gameData;
         private GameplayPlayerData _gameplayPlayerData; 
@@ -67,12 +68,12 @@ namespace Assets.Gameplay.Scripts.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            cardInfoHolder.gameObject.SetActive(false);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-           
+            cardInfoHolder.gameObject.SetActive(true);
         }
 
         public void OnPointerUp(PointerEventData eventData)

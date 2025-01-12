@@ -9,6 +9,8 @@ namespace Assets.Gameplay.Scripts.Location
     {
         [field:SerializeField] public Sprite HideSprite {get; set; }
         [field:SerializeField] public Sprite OpenedSprite {get; set; }
+        [field:SerializeField] public string DescTextAfterReveal {get; set; }
+
         [field:SerializeField] public string DescText {get; set; }
         [field:SerializeField] public string LocationName { get; set; }
         [field:SerializeField] public int LocationMaxCardCount { get; set; } 

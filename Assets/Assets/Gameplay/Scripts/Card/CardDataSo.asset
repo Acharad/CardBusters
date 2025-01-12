@@ -25,6 +25,7 @@ MonoBehaviour:
         <CurrentLocation>k__BackingField: {fileID: 0}
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: HULK SMASH!
     - cardView: {fileID: 7000623155911770486, guid: 9ed92e643788c8843b80c180f99453f9, type: 3}
       cardModel:
         <CardSprite>k__BackingField: {fileID: 0}
@@ -35,6 +36,7 @@ MonoBehaviour:
         <CurrentLocation>k__BackingField: {fileID: 0}
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Starts in your opening hand
     - cardView: {fileID: 6193412763825195297, guid: dc6d9b787189452438f8725c419c2313, type: 3}
       cardModel:
         <CardSprite>k__BackingField: {fileID: 0}
@@ -45,6 +47,7 @@ MonoBehaviour:
         <CurrentLocation>k__BackingField: {fileID: 0}
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: If this is at the middle location, +3 Power
     - cardView: {fileID: 8176560324399519982, guid: 33f652fa45edd2e4181654e7b9c519e9, type: 3}
       cardModel:
         <CardSprite>k__BackingField: {fileID: 0}
@@ -55,6 +58,7 @@ MonoBehaviour:
         <CurrentLocation>k__BackingField: {fileID: 0}
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: After you play a card here, +1 Power
     - cardView: {fileID: -4461241996601902525, guid: 9b578a217543759488fc5d24ecad7517, type: 3}
       cardModel:
         <CardSprite>k__BackingField: {fileID: 0}
@@ -65,3 +69,4 @@ MonoBehaviour:
         <CurrentLocation>k__BackingField: {fileID: 0}
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: If your side of this location is full, +4 Power

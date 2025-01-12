@@ -88,9 +88,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1414339551169189859, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414339551169189859, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414339551169189859, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414339551169189859, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2290469486954858634, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
       propertyPath: m_Name
       value: P_Location_Asgard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944186339256747565, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e55f558d20e3e7e459936a0a6dabd54b, type: 3}
+    - target: {fileID: 7944186339256747565, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944186339256747565, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944186339256747565, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6646540177894626950, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
@@ -115,6 +147,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0281f533dc2782c46b33f8f6272345be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2312216578053524286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9036778880998718105, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}
+  m_PrefabInstance: {fileID: 6737299526677721511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3693190683165767562 stripped
@@ -161,12 +204,15 @@ MonoBehaviour:
   animator: {fileID: 8935168214488033728}
   enemyCardHolder: {fileID: 1039686029721652729}
   playerCardHolder: {fileID: 8501182734429035155}
+  descTextAfterReveal: {fileID: 2312216578053524286}
   descText: {fileID: 8020735428164917633}
   enemyPower: {fileID: 4424419656493549976}
   playerPower: {fileID: 8660176755729672591}
   locationName: {fileID: 7387666800098482249}
   EnemyAnimator: {fileID: 6113321938184303089}
   PlayerAnimator: {fileID: 171284774272801947}
+  _isPlayerWinning: 0
+  _isEnemyWinning: 0
 --- !u!114 &5683274918166390340 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1414339551169189859, guid: c6fffa3a48508104b8274b8729b5d8f6, type: 3}

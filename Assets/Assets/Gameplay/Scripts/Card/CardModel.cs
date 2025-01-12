@@ -19,6 +19,7 @@ namespace Assets.Gameplay.Scripts.Card
         [field:SerializeField] public Transform DeckPositionHolder { get; set; }
         
         [field:SerializeField] public int CardCount { get; set; }
+        [field:SerializeField] public string CardInfo { get; set; }
 
         private bool _isCardLocked;
 
@@ -45,6 +46,7 @@ namespace Assets.Gameplay.Scripts.Card
                 CurrentLocation = this.CurrentLocation, 
                 DeckPositionHolder = this.DeckPositionHolder, 
                 CardCount = this.CardCount,
+                CardInfo = this.CardInfo,
                 _isCardLocked = this._isCardLocked 
             };
         }

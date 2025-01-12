@@ -19,6 +19,8 @@ MonoBehaviour:
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescTextAfterReveal>k__BackingField: Give a card in each player's hand +1
+          cost
         <DescText>k__BackingField: 
         <LocationName>k__BackingField: Ice Box
         <LocationMaxCardCount>k__BackingField: 4
@@ -26,6 +28,8 @@ MonoBehaviour:
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescTextAfterReveal>k__BackingField: If you only have one card here, it
+          has +5 Power
         <DescText>k__BackingField: 
         <LocationName>k__BackingField: Atlantis
         <LocationMaxCardCount>k__BackingField: 4
@@ -33,6 +37,7 @@ MonoBehaviour:
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescTextAfterReveal>k__BackingField: After turn 4, each player draws 2 cards
         <DescText>k__BackingField: 
         <LocationName>k__BackingField: Asgard
         <LocationMaxCardCount>k__BackingField: 4
@@ -40,6 +45,7 @@ MonoBehaviour:
       LocationModel:
         <HideSprite>k__BackingField: {fileID: 0}
         <OpenedSprite>k__BackingField: {fileID: 0}
+        <DescTextAfterReveal>k__BackingField: 
         <DescText>k__BackingField: 
         <LocationName>k__BackingField: Ruins
         <LocationMaxCardCount>k__BackingField: 4
