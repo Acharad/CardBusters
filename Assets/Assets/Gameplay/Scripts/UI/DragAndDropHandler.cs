@@ -45,7 +45,8 @@ namespace Assets.Gameplay.Scripts.UI
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 if (cardView.GetData().ManaCost > _gameplayPlayerData.GetPlayerMana()) return;
-                if (_isLocated && !cardView.GetData().GetIsCardLocked()) return;
+                if (_isLocated) return;
+                if (cardView.GetData().GetIsCardLocked()) return;
                 _firstTransformPosition = transform.position;
             
                 _cardCanMove = true;
@@ -56,6 +57,7 @@ namespace Assets.Gameplay.Scripts.UI
                 if (!IsCardLocked)
                 {
                     _isLocated = false;
+                    cardView.ResetCardScale();
                     cardView.GetData().CurrentLocation.TryRemoveCard(cardView);
                     cardView.ResetCardView();
                     

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7972228f55f0f049a0493b0b4b0390f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RectTransform: {fileID: 2176429385436499055}
   cardImage: {fileID: 8388482927457742700}
   cardText: {fileID: 4396538816471049742}
   cardMana: {fileID: 491422092266854117}
@@ -162,6 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2176429385436499055 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 921468239480391619, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}
+  m_PrefabInstance: {fileID: 1368404368468118444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4396538816471049742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3458245851948494242, guid: 27b426415f90bdc48a322bbae0ba1ef0, type: 3}

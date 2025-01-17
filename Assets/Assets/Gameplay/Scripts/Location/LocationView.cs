@@ -127,7 +127,7 @@ namespace Assets.Gameplay.Scripts.Location
                 // ActivateOnRevealFunc(cardView);
                 
                 PlayedCardsThisTurnEnemy.AddLast(cardView);
-                //PlayedCards.AddLast(cardView);
+                EnemyCards.AddLast(cardView);
             }
             else
             {
@@ -168,10 +168,11 @@ namespace Assets.Gameplay.Scripts.Location
         public void TryRemoveCard(CardView cardView, bool isFromPlayer = true)
         {
             PlayedCardsThisTurn.Remove(cardView);
-            _locationModel.PlayerPower -= cardView.GetData().Power;
+            _locationModel.PreviewPlayerPower -= cardView.GetData().Power;
             playerPower.text = _locationModel.PlayerPower.ToString();
             playerCardHolder.RemoveCardToThisLocation(cardView);
             _turnData.PlayedCardsLinkedList.Remove(cardView);
+            PlayedCards.Remove(cardView);
         }
 
         public void CheckLocationCanReveal(int turnCount)

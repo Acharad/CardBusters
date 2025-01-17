@@ -9,6 +9,7 @@ namespace Assets.Gameplay.Scripts.Card
 {
     public class CardView : MonoBehaviour, IOnRevealCard, IOnGoingCard
     {
+        [SerializeField] private RectTransform RectTransform;
         [SerializeField] private Image cardImage;
         [SerializeField] private TextMeshProUGUI cardText;
         [SerializeField] private TextMeshProUGUI cardMana;
@@ -72,6 +73,11 @@ namespace Assets.Gameplay.Scripts.Card
         public void RemoveCard()
         {
             Destroy(gameObject);
+        }
+
+        public void ResetCardScale()
+        {
+            RectTransform.sizeDelta = new Vector2(150, 200);
         }
     }
 }
