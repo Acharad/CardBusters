@@ -22,6 +22,13 @@ namespace Assets.Gameplay.Scripts.Card
                 _locationView.OnCardAddedAfterTurnEnd -= IncreaseItemPower;
             }
             
+            if (_locationView.enemyCardHolder.GetCurrentCardCount() == 4)
+            {
+                _cardModel.Power += 4;
+                Prepare();
+                _locationView.OnCardAddedAfterTurnEnd -= IncreaseItemPower;
+            }
+            
         }
     }
 }

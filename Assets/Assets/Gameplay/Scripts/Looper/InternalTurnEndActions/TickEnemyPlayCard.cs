@@ -25,7 +25,6 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
         }
         public override IEnumerator Tick()
         {
-            var cardList = _gameplayPlayerData.EnemyCardsInHand;
             var playableCards = new List<CardView>();
             var locations = _gameData.GameLocationDataList;
 
@@ -34,30 +33,36 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
 
             while (currentMana > 0 && canPlay)
             {
-                foreach (var card in cardList)
+                playableCards.Clear();
+                foreach (var card in _gameplayPlayerData.EnemyCardsInHand)
                 {
-                    if(card.GetData().ManaCost < currentMana)
+                    if(card.GetData().ManaCost <= currentMana)
                         playableCards.Add(card);
                 }
                 
-                var randomLocation = locations[Random.Range(0, locations.Count)];
+               
                 if (playableCards.Count > 0)
                 {
+                    var randomLocation = locations[Random.Range(0, locations.Count)];
                     var randomCard  = playableCards[Random.Range(0, playableCards.Count)];
                 
+                    var isLocated = randomLocation.LocationView.TryLocateCard(randomCard, false);
+                    if(!isLocated)
+                        continue;
+                    
+                    
                     _signalBus.Fire(new IGameplayEvents.OnCardAddedToLocation()
                     {
                         CardView = randomCard,
                         LocationView = randomLocation.LocationView,
                         IsFromPlayer = false,
                     });
-                
-                    randomLocation.LocationView.TryLocateCard(randomCard, false);
-                
+                    
                     _gameplayPlayerData.DecreaseEnemyMana(randomCard.GetData().ManaCost);
                     playableCards.Remove(randomCard);
                     _gameplayPlayerData.EnemyCardsInHand.Remove(randomCard);
                     currentMana = _gameplayPlayerData.GetEnemyMana();
+                    Debug.Log("ahmet card located" + randomCard);
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace Assets.Gameplay.Scripts.Zenject.Installers
             //turn events
             Container.DeclareSignal<IGameplayEvents.OnTurnEnd>();
             Container.DeclareSignal<IGameplayEvents.OnTurnStart>();
+            Container.DeclareSignal<IGameplayEvents.OnTurnEndLocationAction>();
 
             //game events
             Container.DeclareSignal<IGameplayEvents.OnGameWin>();

@@ -90,7 +90,6 @@ namespace Assets.Gameplay.Scripts.UI
             foreach (var gameLocationData in _gameData.GameLocationDataList)
             {
                 var currentDif = Vector2.Distance(gameLocationData.LocationView.transform.position, transform.position);
-                Debug.Log("ahmet currentDif  = " + currentDif);
                 if (!(currentDif < minDif)) continue;
                 minDif = currentDif;
                 if(minDif < 350f)
@@ -99,7 +98,6 @@ namespace Assets.Gameplay.Scripts.UI
             if (minLocationData == null || !minLocationData.LocationView.CheckCanLocateCard())
             {
                 transform.position = _firstTransformPosition;
-                Debug.Log("ahmet transform position" + _firstTransformPosition);
             }
             else
             {

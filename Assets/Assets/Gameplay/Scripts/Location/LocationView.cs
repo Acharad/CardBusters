@@ -73,7 +73,7 @@ namespace Assets.Gameplay.Scripts.Location
 
             Prepare();
             
-            _signalBus.Subscribe<IGameplayEvents.OnTurnEnd>(TurnEndAction);
+            _signalBus.Subscribe<IGameplayEvents.OnTurnEndLocationAction>(TurnEndAction);
         }
 
         protected virtual void TurnEndAction()
@@ -102,7 +102,7 @@ namespace Assets.Gameplay.Scripts.Location
         }
 
 
-        public void TryLocateCard(CardView cardView, bool isFromPlayer = true)
+        public bool TryLocateCard(CardView cardView, bool isFromPlayer = true)
         {
             if (isFromPlayer && playerCardHolder.CanLocateCard())
             {
@@ -116,6 +116,7 @@ namespace Assets.Gameplay.Scripts.Location
                 
                 PlayedCardsThisTurn.AddLast(cardView);
                 PlayedCards.AddLast(cardView);
+                return true;
             }
             else if (enemyCardHolder.CanLocateCard())
             {
@@ -128,17 +129,21 @@ namespace Assets.Gameplay.Scripts.Location
                 
                 PlayedCardsThisTurnEnemy.AddLast(cardView);
                 EnemyCards.AddLast(cardView);
+                return true;
             }
             else
             {
                 Debug.Log("Location View | Card could not locate");
+                return false;
             }
+
+            return false;
         }
 
 
         private void CalculateLocationValues(CardView cardView, bool isFromPlayer = true)
         {
-            if (isFromPlayer && playerCardHolder.CanLocateCard())
+            if (isFromPlayer)
             {
                 var power = 0;
                 foreach (var playedCard in PlayedCards)
@@ -148,7 +153,7 @@ namespace Assets.Gameplay.Scripts.Location
                 _locationModel.PlayerPower = power;
                 SetLocationValues();
             }
-            else if (enemyCardHolder.CanLocateCard())
+            else
             {
                 var power = 0;
                 foreach (var playedCard in EnemyCards)
@@ -156,6 +161,7 @@ namespace Assets.Gameplay.Scripts.Location
                     power += playedCard.GetData().Power;
                 }
                 _locationModel.EnemyPower = power;
+                Debug.Log("ahmet location enemy cards" + EnemyCards.Count);
                 SetLocationValues();
             }
         }

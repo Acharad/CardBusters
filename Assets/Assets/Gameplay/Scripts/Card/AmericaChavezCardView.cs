@@ -21,17 +21,17 @@ namespace Assets.Gameplay.Scripts.Card
         {
             if (_isFromPlayer)
             {
-                if(_gameplayPlayerData.PlayerCardsInHand.Count < 0) return;
-                var card = _gameplayPlayerData.PlayerCardsInHand[
-                    Random.Range(0, _gameplayPlayerData.PlayerCardsInHand.Count - 1)];
+                if(_gameplayPlayerData.PlayerCardsInHand.Count <= 0) return;
+                var random = Random.Range(0, _gameplayPlayerData.EnemyCardsInHand.Count);
+                var card = _gameplayPlayerData.EnemyCardsInHand[random];
                 card.GetData().Power += 2;
                 card.ShowCardText();
             }
             else
             {
-                if(_gameplayPlayerData.EnemyCardsInHand.Count < 0) return;
-                var card = _gameplayPlayerData.EnemyCardsInHand[
-                    Random.Range(0, _gameplayPlayerData.EnemyCardsInHand.Count - 1)];
+                if(_gameplayPlayerData.EnemyCardsInHand.Count <= 0) return;
+                var random = Random.Range(0, _gameplayPlayerData.EnemyCardsInHand.Count);
+                var card = _gameplayPlayerData.EnemyCardsInHand[random];
                 card.GetData().Power += 2;
                 card.ShowCardText();
             }

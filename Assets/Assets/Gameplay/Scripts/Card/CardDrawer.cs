@@ -79,16 +79,11 @@ namespace Assets.Gameplay.Scripts.Card
             }
             
             
-            Debug.Log("Player Cards in deck count " + _gameplayPlayerData.PlayerCardsInDeck.Count);
-            Debug.Log("Enemy Cards in deck count " + _gameplayPlayerData.EnemyCardsInDeck.Count);
-            foreach (var cardType in _gameplayPlayerData.PlayerCardsInDeck)
-            {
-                Debug.Log("Player Cards In Deck Type : " + cardType);
-            }
+            Debug.Log("ahmet Enemy Cards in deck count " + _gameplayPlayerData.EnemyCardsInDeck.Count);
             
             foreach (var cardType in _gameplayPlayerData.EnemyCardsInDeck)
             {
-                Debug.Log("Enemy Cards In Deck Type : " + cardType);
+                Debug.Log("ahmet Enemy Cards In Deck Type : " + cardType);
             }
         }
     }

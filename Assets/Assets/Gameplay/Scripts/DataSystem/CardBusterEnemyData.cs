@@ -33,7 +33,6 @@ namespace Assets.Gameplay.Scripts.DataSystem
             GameDeckData.EnemyDeck.Add(CardType.Hulk);
             GameDeckData.EnemyDeck.Add(CardType.QuickSilver);
             GameDeckData.EnemyDeck.Add(CardType.Crystal);
-
             
             //SettingsDataModel = _settingsDataView.Load();
         }

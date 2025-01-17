@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Assets.Gameplay.Scripts.Location.AtlantisLocation
 {
     public class AtlantisLocationView : LocationView
@@ -8,6 +10,7 @@ namespace Assets.Gameplay.Scripts.Location.AtlantisLocation
 
         protected override void TurnEndAction()
         {
+            if (!_locationModel.IsRevealed) return;
             
             if (PlayedCards.Count == 1 && !_isPlayerPowerAdded)
             {

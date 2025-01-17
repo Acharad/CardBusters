@@ -25,6 +25,11 @@ namespace Assets.Gameplay.Scripts.Events
         {
         }
 
+        public class OnTurnEndLocationAction
+        {
+            
+        }
+
         public class OnTurnStart
         {
         }
