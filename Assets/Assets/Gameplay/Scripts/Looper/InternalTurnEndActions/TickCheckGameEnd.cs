@@ -21,7 +21,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
         }
         public override IEnumerator Tick()
         {
-            isGameEnd = _gameData.TurnCount > 6;
+            isGameEnd = _gameData.TurnCount >= 5;
             if(isGameEnd)
                 _gameLooper.StartGameEndLoop();
             yield break;

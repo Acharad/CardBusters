@@ -12,8 +12,8 @@ namespace Assets.Gameplay.Scripts.Looper.InternalLoseLoops
        
         public override IEnumerator Tick()
         {
-            _signalBus.Fire<IGameplayEvents.OnGameWin>();
-            Debug.Log("Game events | Game Win!");
+            _signalBus.Fire<IGameplayEvents.OnGameLose>();
+            Debug.Log("Game events | Game Lose!");
             yield break;
         }
     }

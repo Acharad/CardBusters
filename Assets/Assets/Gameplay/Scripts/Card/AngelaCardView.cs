@@ -6,19 +6,19 @@ namespace Assets.Gameplay.Scripts.Card
     public class AngelaCardView : CardView
     {
         
-        public override void OnRevealFunc(LocationView locationView)
+        public override void OnRevealFunc(LocationView locationView, bool isFromPlayer = true)
         {
-            base.OnRevealFunc(locationView);
+            base.OnRevealFunc(locationView, isFromPlayer);
 
-            locationView.OnCardAddedAfterTurnEnd += IncarseItemPower;
+            locationView.OnCardAddedAfterTurnEnd += IncreaseItemPower;
         }
 
 
-        private void IncarseItemPower()
+        private void IncreaseItemPower()
         {
             _cardModel.Power += 1;
             Prepare();
-            _locationView.OnCardAddedAfterTurnEnd -= IncarseItemPower;
+            _locationView.OnCardAddedAfterTurnEnd -= IncreaseItemPower;
         }
     }
 }

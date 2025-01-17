@@ -119,12 +119,12 @@ namespace Assets.Gameplay.Scripts.Location
             }
             else if (enemyCardHolder.CanLocateCard())
             {
-                _locationModel.PreviewEnemyPower += cardView.GetData().Power;
-                enemyPower.text = (_locationModel.EnemyPower + _locationModel.PreviewEnemyPower).ToString();
+                // _locationModel.EnemyPower += cardView.GetData().Power;
+                enemyPower.text = (_locationModel.EnemyPower).ToString();
                 enemyCardHolder.LocateCardToThisLocation(cardView);
                 cardView.GetData().CurrentLocation = this;
                 OnCardAddedToThisLocation?.Invoke();
-                // ActivateOnRevealFunc(cardView);
+                _turnData.PlayedCardsEnemyLinkedList.AddLast(cardView);
                 
                 PlayedCardsThisTurnEnemy.AddLast(cardView);
                 EnemyCards.AddLast(cardView);
@@ -140,12 +140,22 @@ namespace Assets.Gameplay.Scripts.Location
         {
             if (isFromPlayer && playerCardHolder.CanLocateCard())
             {
-                _locationModel.PlayerPower += cardView.GetData().Power;
+                var power = 0;
+                foreach (var playedCard in PlayedCards)
+                {
+                    power += playedCard.GetData().Power;
+                }
+                _locationModel.PlayerPower = power;
                 SetLocationValues();
             }
             else if (enemyCardHolder.CanLocateCard())
             {
-                _locationModel.EnemyPower += cardView.GetData().Power;
+                var power = 0;
+                foreach (var playedCard in EnemyCards)
+                {
+                    power += playedCard.GetData().Power;
+                }
+                _locationModel.EnemyPower = power;
                 SetLocationValues();
             }
         }
@@ -218,7 +228,7 @@ namespace Assets.Gameplay.Scripts.Location
             while (headEnemy != null)
             {
                 OnCardAddedAfterTurnEnd?.Invoke();
-                headEnemy.Value.OnRevealFunc(this);
+                headEnemy.Value.OnRevealFunc(this, false);
                 CalculateLocationValues(headEnemy.Value, false);
                 
                 headEnemy = headEnemy.Next;

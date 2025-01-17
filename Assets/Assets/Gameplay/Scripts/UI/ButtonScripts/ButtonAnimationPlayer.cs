@@ -13,6 +13,7 @@ namespace Assets.Gameplay.Scripts.UI.ButtonScripts
     {
         private Button _button;
         [SerializeField] private float scaleSize;
+        [SerializeField] private float startScaleSize;
         [SerializeField] private float animationDuration;
         [SerializeField] private Ease ease;
         [SerializeField] private Transform buttonBackground;
@@ -34,7 +35,7 @@ namespace Assets.Gameplay.Scripts.UI.ButtonScripts
         {
             if (!CheckCanAnimate()) return;
             CheckAndStopTweenIfPlaying();
-            _buttonTween = buttonBackground.DOScale(1f, animationDuration).SetEase(ease);
+            _buttonTween = buttonBackground.DOScale(startScaleSize, animationDuration).SetEase(ease);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

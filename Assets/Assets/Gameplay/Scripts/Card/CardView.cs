@@ -1,14 +1,17 @@
 using System;
 using Assets.Gameplay.Scripts.Location;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Assets.Gameplay.Scripts.Card
 {
     public class CardView : MonoBehaviour, IOnRevealCard, IOnGoingCard
     {
+        [Inject] private DiContainer _container;
         [SerializeField] private RectTransform RectTransform;
         [SerializeField] private Image cardImage;
         [SerializeField] private TextMeshProUGUI cardText;
@@ -23,6 +26,8 @@ namespace Assets.Gameplay.Scripts.Card
         public event Action OnGoingFunctionAdded;
         
         protected CardModel _cardModel;
+        
+        protected bool _isFromPlayer = true;
 
 
         public CardModel GetData()
@@ -59,8 +64,9 @@ namespace Assets.Gameplay.Scripts.Card
             transform.SetParent(_cardModel.DeckPositionHolder);
         }
 
-        public virtual void OnRevealFunc(LocationView locationView)
+        public virtual void OnRevealFunc(LocationView locationView, bool isFromPlayer = true)
         {
+            _isFromPlayer = isFromPlayer;
             _locationView = locationView;
             OnRevealObjectAdded?.Invoke();
         }
@@ -72,7 +78,8 @@ namespace Assets.Gameplay.Scripts.Card
 
         public void RemoveCard()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
 
         public void ResetCardScale()

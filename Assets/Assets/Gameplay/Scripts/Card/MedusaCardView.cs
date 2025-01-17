@@ -4,18 +4,18 @@ namespace Assets.Gameplay.Scripts.Card
 {
     public class MedusaCardView : CardView
     {
-        public override void OnRevealFunc(LocationView locationView)
+        public override void OnRevealFunc(LocationView locationView, bool isFromPlayer = true)
         {
-            base.OnRevealFunc(locationView);
+            base.OnRevealFunc(locationView, isFromPlayer);
 
             if (locationView.GetModel().RevealTurnCount == 2)
             {
-                IncarseItemPower();
+                IncreaseItemPower();
             }
         }
 
 
-        private void IncarseItemPower()
+        private void IncreaseItemPower()
         {
             _cardModel.Power += 3;
             Prepare();

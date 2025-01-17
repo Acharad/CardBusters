@@ -5,21 +5,21 @@ namespace Assets.Gameplay.Scripts.Card
 {
     public class AntManCardView : CardView
     {
-        public override void OnRevealFunc(LocationView locationView)
+        public override void OnRevealFunc(LocationView locationView, bool isFromPlayer = true)
         {
-            base.OnRevealFunc(locationView);
+            base.OnRevealFunc(locationView, isFromPlayer);
 
-            locationView.OnCardAddedAfterTurnEnd += IncarseItemPower;
+            locationView.OnCardAddedAfterTurnEnd += IncreaseItemPower;
         }
 
 
-        private void IncarseItemPower()
+        private void IncreaseItemPower()
         {
             if (_locationView.playerCardHolder.GetCurrentCardCount() == 4)
             {
                 _cardModel.Power += 4;
                 Prepare();
-                _locationView.OnCardAddedAfterTurnEnd -= IncarseItemPower;
+                _locationView.OnCardAddedAfterTurnEnd -= IncreaseItemPower;
             }
             
         }

@@ -15,6 +15,11 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
                 cardView.GetData().SetIsCardLocked(true);
             }
 
+            foreach (var cardView in _turnData.PlayedCardsEnemyLinkedList)
+            {
+                cardView.GetData().SetIsCardLocked(true);
+            }
+
             yield break;
         }
     }

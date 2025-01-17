@@ -10,6 +10,7 @@ namespace Assets.Gameplay.Scripts.Looper.InternalTurnEndActions
         public override IEnumerator Tick()
         {
             _turnData.PlayedCardsLinkedList?.First?.List.Clear();
+            _turnData.PlayedCardsEnemyLinkedList?.First?.List.Clear();
             yield break;
         }
     }

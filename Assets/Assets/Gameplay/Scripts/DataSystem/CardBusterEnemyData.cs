@@ -24,15 +24,15 @@ namespace Assets.Gameplay.Scripts.DataSystem
             GameDeckData.EnemyDeck.Add(CardType.AntMan);
             GameDeckData.EnemyDeck.Add(CardType.Medusa);
             GameDeckData.EnemyDeck.Add(CardType.Angela);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
+            GameDeckData.EnemyDeck.Add(CardType.Abomination);
+            GameDeckData.EnemyDeck.Add(CardType.AgentVenom);
+            GameDeckData.EnemyDeck.Add(CardType.AmericaChavez);
+            GameDeckData.EnemyDeck.Add(CardType.Bishop);
+            GameDeckData.EnemyDeck.Add(CardType.BlackPanther);
+            GameDeckData.EnemyDeck.Add(CardType.ColleenWing);
             GameDeckData.EnemyDeck.Add(CardType.Hulk);
             GameDeckData.EnemyDeck.Add(CardType.QuickSilver);
-            GameDeckData.EnemyDeck.Add(CardType.Hulk);
+            GameDeckData.EnemyDeck.Add(CardType.Crystal);
 
             
             //SettingsDataModel = _settingsDataView.Load();

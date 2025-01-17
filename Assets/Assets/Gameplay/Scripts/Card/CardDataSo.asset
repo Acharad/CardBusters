@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardDataSo
   m_EditorClassIdentifier: 
   gameCardViewDictionary:
-    keyData: 0400000002000000030000000600000007000000
+    keyData: 0400000002000000030000000600000007000000080000000a0000000b0000000e0000000f0000001200000014000000
     valueData:
     - cardView: {fileID: 4423225090445528603, guid: eab7e5de91dee7e4d85ae4576d78c99f, type: 3}
       cardModel:
@@ -70,3 +70,83 @@ MonoBehaviour:
         <DeckPositionHolder>k__BackingField: {fileID: 0}
         <CardCount>k__BackingField: 0
         <CardInfo>k__BackingField: If your side of this location is full, +4 Power
+    - cardView: {fileID: 617832413242276312, guid: 6f6785a877a7e4c4b900d9c69b0284d9, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: Abomination
+        <ManaCost>k__BackingField: 5
+        <Power>k__BackingField: 9
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Foolish rabble! You are beneath me!
+    - cardView: {fileID: -1110664773730454669, guid: 1da6a4f147eeda240a16b46e68eb85be, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: AgentVenom
+        <ManaCost>k__BackingField: 2
+        <Power>k__BackingField: 5
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Increase the Power of all cards in your location
+          to 3.
+    - cardView: {fileID: 3265645848591287547, guid: 0717590139514764aa4cdbb4337141a4, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: AmericaChavez
+        <ManaCost>k__BackingField: 1
+        <Power>k__BackingField: 2
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Give random card of your hand +2 Power.
+    - cardView: {fileID: 4205511510853928143, guid: 34ea137bd78db1e4e8cba148b8c38edd, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: Bishop
+        <ManaCost>k__BackingField: 3
+        <Power>k__BackingField: 1
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: After a card played this location, this gains
+          +1 Power.
+    - cardView: {fileID: 5684773082448390052, guid: 9ff9cad353ac11e4eb834ec91619e865, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: BlackPanther
+        <ManaCost>k__BackingField: 5
+        <Power>k__BackingField: 5
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: "Double this card\u2019s Power."
+    - cardView: {fileID: 7191962218464423747, guid: 4eca7dfc4e97dcc4a9f53ee4d13ec23f, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: ColleenWing
+        <ManaCost>k__BackingField: 2
+        <Power>k__BackingField: 4
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Discard the card that costs the least from your
+          hand.
+    - cardView: {fileID: 3341667143918512572, guid: 744d664aa26206f4bb603b048e8ee79d, type: 3}
+      cardModel:
+        <CardSprite>k__BackingField: {fileID: 0}
+        <RevealSprite>k__BackingField: {fileID: 0}
+        <CardName>k__BackingField: Crystal
+        <ManaCost>k__BackingField: 3
+        <Power>k__BackingField: 4
+        <CurrentLocation>k__BackingField: {fileID: 0}
+        <DeckPositionHolder>k__BackingField: {fileID: 0}
+        <CardCount>k__BackingField: 0
+        <CardInfo>k__BackingField: Each player draws a card.

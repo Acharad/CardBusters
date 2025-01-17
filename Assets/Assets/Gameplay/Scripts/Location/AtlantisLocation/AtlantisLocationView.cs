@@ -8,7 +8,6 @@ namespace Assets.Gameplay.Scripts.Location.AtlantisLocation
 
         protected override void TurnEndAction()
         {
-            if(!_isLocationRevealed) return;
             
             if (PlayedCards.Count == 1 && !_isPlayerPowerAdded)
             {
@@ -19,6 +18,7 @@ namespace Assets.Gameplay.Scripts.Location.AtlantisLocation
             if (PlayedCards.Count > 1 && _isPlayerPowerAdded)
             {
                 _locationModel.PlayerPower -= 5;
+                _isPlayerPowerAdded = false;
             }
 
             if (EnemyCards.Count == 1 && !_isEnemyPowerAdded)
@@ -30,6 +30,7 @@ namespace Assets.Gameplay.Scripts.Location.AtlantisLocation
             if (EnemyCards.Count > 1 && _isEnemyPowerAdded)
             {
                 _locationModel.EnemyPower -= 5;
+                _isEnemyPowerAdded = false;
             }
             
             SetLocationValues();

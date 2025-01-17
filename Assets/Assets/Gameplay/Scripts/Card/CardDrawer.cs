@@ -67,7 +67,7 @@ namespace Assets.Gameplay.Scripts.Card
                     
                 }
             }
-            else if (drawCardType == DrawCardType.TurnEnd)
+            else if (drawCardType == DrawCardType.TurnEnd || drawCardType == DrawCardType.Special)
             {
                 createdCardType = _gameplayPlayerData.PlayerCardsInDeck.Pop();
                 createdCard = _cardFactory.CreateCard(createdCardType, _deckPositionHolder.deckTransform, _deckPositionHolder.deckTransformForEnemy, true);

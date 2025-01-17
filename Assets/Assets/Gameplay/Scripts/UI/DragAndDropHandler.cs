@@ -75,6 +75,8 @@ namespace Assets.Gameplay.Scripts.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (_isLocated) return;
+            if (cardView.GetData().GetIsCardLocked()) return;
             cardInfoHolder.gameObject.SetActive(true);
         }
 
